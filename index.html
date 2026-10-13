@@ -881,6 +881,7 @@ const BUILD=[
  mk({id:'english',dept:'english',name:'ACADEMIA INGLÉS',bx:2,by:1,h:84,draw:dEng}),
  mk({id:'school',dept:'school',name:'ESCUELA QA',bx:1,by:2,h:140,draw:dSchool}),
  mk({id:'li',dept:null,name:'LINKEDIN',bx:2,by:0,h:112,draw:dLI,em:[]}),
+ mk({id:'git',dept:null,name:'GIT Y GITHUB',bx:0,by:1,h:92,draw:dGit,em:[]}),
  mk({id:'frontend',dept:'frontend',name:'ACADEMIA FRONTEND',bx:0,by:2,h:128,draw:dFrontend}),
  mk({id:'backend',dept:'backend',name:'ACADEMIA BACKEND',bx:2,by:2,h:128,draw:dBackend})
 ];
@@ -987,6 +988,35 @@ function dEng(b){
  ctx.strokeStyle=C('#aaa');ctx.lineWidth=.8;
  ctx.beginPath();ctx.ellipse(g[0],g[1],R,3.2,0,0,TAU);ctx.stroke();
  ctx.beginPath();ctx.moveTo(g[0]-R,g[1]);ctx.lineTo(g[0]+R,g[1]);ctx.stroke();
+}
+const PGIT={t:'#f4795b',l:'#e4572f',r:'#b9411f',s:'#8c2f14'};
+function dGit(b){
+ const{x0,y0,x1,y1}=b;
+ box(x0,y0,x1,y1,0,42,PDARK);
+ band(x0,y0,x1,y1,36,40,PGIT);
+ windows(FL(x0,x1,y1,5,24),5,1,21,{mx:.08,my:0,gap:.3,glass:'#8fd0f2'});
+ windows(FR(y0,y1,x1,5,24),5,1,22,{mx:.08,my:0,gap:.3,glass:'#8fd0f2'});
+ doorL(b.cx,.5,y1,14);
+ box(x0-.05,y0-.05,x1+.05,y1+.05,42,45,PG,.7);
+ const m=.45;
+ box(x0+m,y0+m,x1-m,y1-m,45,70,PDARK);
+ band(x0+m,y0+m,x1-m,y1-m,64,68,PGIT);
+ /* panel con el gráfico de ramas (commits) en la cara frontal de la torre */
+ const f=FL(x0+m,x1-m,y1-m,45,64);
+ poly([f(.07,.1),f(.93,.1),f(.93,.92),f(.07,.92)],C('#131a24'));
+ const pt=(u,v)=>f(u,v),pulse=Math.floor(TT*1.6)%5;
+ ctx.lineWidth=1.6;ctx.lineCap='round';
+ ctx.strokeStyle=C('#6fd3a0');let a=pt(.3,.2),c=pt(.3,.8);ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(c[0],c[1]);ctx.stroke();
+ ctx.strokeStyle=C('#f4795b');a=pt(.3,.45);c=pt(.7,.6);let d=pt(.7,.8);ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(c[0],c[1]);ctx.lineTo(d[0],d[1]);ctx.stroke();
+ const nodes=[[.3,.2,'#6fd3a0'],[.3,.45,'#6fd3a0'],[.3,.8,'#6fd3a0'],[.7,.6,'#f4795b'],[.7,.8,'#f4795b']];
+ nodes.forEach((n,i)=>{const p=pt(n[0],n[1]);ctx.fillStyle=C(n[2]);ctx.beginPath();ctx.arc(p[0],p[1],i===pulse?3.1:2.2,0,TAU);ctx.fill();
+  if(i===pulse){ctx.strokeStyle='rgba(255,255,255,.55)';ctx.lineWidth=.8;ctx.beginPath();ctx.arc(p[0],p[1],5,0,TAU);ctx.stroke();ctx.lineWidth=1.6}});
+ ctx.lineCap='butt';
+ box(x0+m-.05,y0+m-.05,x1-m+.05,y1-m+.05,70,73,PG,.7);
+ /* antena con luz */
+ const ac=P(b.cx,b.cy,73),at=P(b.cx,b.cy,92);
+ ctx.strokeStyle=C('#6b6b70');ctx.lineWidth=1.4;ctx.beginPath();ctx.moveTo(ac[0],ac[1]);ctx.lineTo(at[0],at[1]);ctx.stroke();
+ ctx.fillStyle=Math.sin(TT*3)>0?'#f4795b':'#8c2f14';ctx.beginPath();ctx.arc(at[0],at[1]-1,2.2,0,TAU);ctx.fill();
 }
 function dSchool(b){
  const{x0,y0,x1,y1}=b;
@@ -1290,7 +1320,7 @@ function drawLabels(){
   ctx.save();ctx.translate(sx,sy);ctx.scale(scale,scale);
   const maxw=152,w=Math.min(maxw,Math.max(82,ctx.measureText(label).width+20)),h=24;
   ctx.globalAlpha=.98;ctx.shadowColor='rgba(0,0,0,.2)';ctx.shadowBlur=5;ctx.shadowOffsetY=2;
-  rr(-w/2,-h/2,w,h,4);ctx.fillStyle=b.id==='li'?'#0a66c2':b.id==='school'?'#6c3bb4':b.id==='frontend'?'#167c80':b.id==='backend'?'#34495e':'#2b2a28';ctx.fill();
+  rr(-w/2,-h/2,w,h,4);ctx.fillStyle=b.id==='li'?'#0a66c2':b.id==='git'?'#d6492a':b.id==='school'?'#6c3bb4':b.id==='frontend'?'#167c80':b.id==='backend'?'#34495e':'#2b2a28';ctx.fill();
   ctx.shadowColor='transparent';ctx.strokeStyle='#fff';ctx.lineWidth=1;ctx.stroke();
   ctx.fillStyle='#fff';ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='700 9px ui-rounded,system-ui,sans-serif';
   let txt=label.toUpperCase();while(ctx.measureText(txt).width>w-10&&txt.length>8)txt=txt.slice(0,-1);
@@ -2029,6 +2059,174 @@ function entBlock(t,f,ex,ps){
 TOW.it={n:'Centro IT',em:ic('monitor'),c:'#3b6fd8',fl:ITL};
 TOW.en={n:'Academia de Inglés',em:ic('globe'),c:'#d8372f',fl:ENL};
 TOW.gym={n:'Academia Gym',em:ic('dumbbell'),c:'#2f9e6b',fl:GYL};
+/* ============ ACADEMIA GIT Y GITHUB · 6 niveles ============ */
+const GITL=[
+LV('Nivel 1 · Qué son Git y GitHub','Git y GitHub: conceptos','Entender para qué sirve el control de versiones, la diferencia entre Git y GitHub, y crear tu cuenta y tu primer repositorio desde el navegador.','2–3 h',
+[['El problema que resuelve el control de versiones',`Imagina que guardas archivos como "informe_final", "informe_final2", "informe_final_AHORA_si". Se pierde el rastro de qué cambió, cuándo y quién lo hizo.
+Un **sistema de control de versiones** guarda el historial completo de un proyecto: cada cambio queda registrado y puedes volver a cualquier punto anterior. También permite que varias personas trabajen en lo mismo sin pisarse.
+Para un QA sirve para guardar casos de prueba, scripts y reportes con historial, y para mostrar tu trabajo.`],
+['Git y GitHub no son lo mismo',`**Git** es la herramienta (un programa) que registra los cambios. Funciona en tu computador, incluso sin internet.
+**GitHub** es un sitio web donde se guardan repositorios Git en la nube, se comparten y se colabora. Existen alternativas como GitLab y Bitbucket.
+Resumen: Git es el motor; GitHub es el lugar donde publicas y colaboras.`],
+['Vocabulario básico',`**Repositorio (repo):** carpeta de un proyecto con todo su historial.
+**Commit:** una "foto" de tus archivos en un momento, con un mensaje que explica qué cambió.
+**Rama (branch):** una línea paralela de trabajo. La principal suele llamarse main.
+**Remoto:** la copia del repo que vive en GitHub.
+**Clonar:** descargar una copia de un repo. **Fork:** copiar el repo de otra persona a tu cuenta.`],
+['Cuenta y primer repositorio en GitHub',`1) Crea tu cuenta en github.com. Elige un nombre de usuario profesional: aparecerá en tus enlaces.
+2) Usa el botón + (arriba a la derecha) y elige New repository.
+3) Ponle nombre (sin espacios, por ejemplo qa-portafolio), marca Public y activa "Add a README file".
+4) Crea el repositorio. Ya tienes tu primera página en GitHub.
+Para subir archivos desde el navegador: Add file > Upload files > Commit changes.`]],
+[LB('Taller 1 · Crea tu cuenta (20 min)',['Entra a github.com y crea tu cuenta con un usuario profesional (sin números raros ni apodos).','Activa la verificación en dos pasos en Settings > Password and authentication.','Completa tu perfil: foto y nombre.'],[['GitHub','https://github.com']]),
+LB('Taller 2 · Primer repositorio (30 min)',['Crea un repositorio público llamado qa-portafolio con un README.','Entra al README y toca el lápiz para editarlo: escribe una línea que diga quién eres y qué estás aprendiendo.','Guarda con Commit changes y escribe un mensaje claro, por ejemplo: Agrego presentación al README.','Abre la pestaña de commits (el reloj con el número de commits) y observa tu historial.']),
+LB('Taller 3 · Sube un archivo (20 min)',['Con Add file > Upload files sube cualquier archivo de texto de práctica.','Haz el commit con un mensaje que describa lo que subiste.','Verifica que aparece en la lista de archivos del repositorio.'])],
+[['GitHub','https://github.com','Sitio oficial'],['GitHub Docs · Empezar','https://docs.github.com/es/get-started','Documentación en español'],['Pro Git (libro gratuito)','https://git-scm.com/book/es/v2','Libro oficial de Git en español']],
+['¿Qué es Git?|Una herramienta que registra el historial de cambios|Un sitio web de empleo|Un navegador|0|Git es el sistema de control de versiones.','¿Qué es GitHub?|Un sitio donde se alojan repositorios Git en la nube|Un editor de texto|Un antivirus|0|GitHub aloja y comparte repos.','Un commit es:|Una foto de tus archivos con un mensaje|Un tipo de rama|Una cuenta de usuario|0|Cada commit guarda un estado.','Un repositorio es:|La carpeta del proyecto con su historial|Un comando|Un navegador|0|Contiene archivos e historial.','Para qué sirve el mensaje de un commit:|Explicar qué cambió|Cifrar el archivo|Borrar el historial|0|Los mensajes hacen legible el historial.','La rama principal suele llamarse:|main|root|final|0|Antes también se usaba master.','¿Se necesita internet para usar Git en tu computador?|No, solo para publicar en GitHub|Siempre|Solo con VPN|0|Git funciona localmente.','Clonar un repositorio es:|Descargar una copia completa|Borrarlo|Cambiar su nombre|0|Clone = copia local.','Por qué un QA usaría GitHub:|Guardar y mostrar su portafolio con historial|Para jugar|Para cambiar la hora del sistema|0|El portafolio es evidencia de tu trabajo.'],
+['Entrega opcional: pega el enlace a tu repositorio qa-portafolio (https://github.com/tu-usuario/qa-portafolio) y cuéntame qué escribiste en el README.']),
+
+LV('Nivel 2 · README, Markdown y estructura del portafolio','README y Markdown','Escribir un README claro con Markdown y organizar un repositorio de portafolio QA con carpetas ordenadas.','3–4 h',
+[['Qué es Markdown',`**Markdown** es una forma simple de dar formato al texto con símbolos. GitHub lo muestra con formato. Los archivos terminan en .md.
+# Título grande · ## Subtítulo · **negrita** · *cursiva*
+- guion para listas · 1. para listas numeradas
+[texto del enlace](https://enlace.com) para enlaces
+Una línea con tres comillas invertidas abre y cierra un bloque de código.
+Las tablas se hacen con barras verticales y guiones.`],
+['El README: la portada de tu repositorio',`El archivo README.md se muestra automáticamente al abrir el repositorio. Un buen README responde rápido: **qué es, qué contiene y cómo se usa o se lee**.
+Para un portafolio QA incluye: quién eres, qué herramientas manejas, una lista de proyectos con enlace a cada carpeta y cómo contactarte. Si es posible, escríbelo también en inglés.
+Un README vacío o con texto de relleno da mala impresión a quien revisa tu perfil.`],
+['Estructura de carpetas de un portafolio QA',`Una estructura clara ayuda a quien revisa tu trabajo:
+qa-portafolio/ con README.md, 01-casos-de-prueba/, 02-reportes-de-bugs/, 03-sql/, 04-api-postman/, 05-automatizacion/ y 06-plan-de-pruebas/.
+Dentro de cada carpeta, un README corto que explique qué hay y qué aplicación probaste. Usa nombres sin espacios ni tildes para evitar problemas: usa guiones.`],
+['Qué NO subir',`Nunca subas contraseñas, claves de API, tokens, datos personales reales ni información confidencial de una empresa. Aunque borres el archivo después, el historial puede conservarlo. Si pasa, cambia la contraseña o clave de inmediato.
+Usa datos de prueba inventados y prueba solo aplicaciones destinadas a práctica o públicas con permiso.`]],
+[LB('Taller 1 · Markdown en vivo (30 min)',['Edita el README de qa-portafolio: agrega un título, una presentación de 3 líneas, una lista de tus habilidades y un enlace a tu LinkedIn.','Usa el botón Preview del editor para ver cómo queda antes de guardar.','Haz commit con un mensaje claro.'],[['Guía de Markdown','https://www.markdownguide.org/basic-syntax/']]),
+LB('Taller 2 · Crea la estructura (40 min)',['En GitHub usa Add file > Create new file. Escribe 01-casos-de-prueba/README.md en el nombre: la barra crea la carpeta.','Repite para 02-reportes-de-bugs, 03-sql, 04-api-postman, 05-automatizacion y 06-plan-de-pruebas.','En cada README escribe una línea: qué irá en esa carpeta.']),
+LB('Taller 3 · Tabla de proyectos (30 min)',['En el README principal crea una tabla con columnas Proyecto, Qué probé y Enlace.','Agrega una fila de ejemplo y enlaza a la carpeta correspondiente.'])],
+[['Markdown Guide','https://www.markdownguide.org','Referencia de sintaxis'],['Documentación de formato en GitHub','https://docs.github.com/es/get-started/writing-on-github','Cómo escribir en GitHub'],['Ejemplo de README','https://github.com/matiassingers/awesome-readme','Colección de buenos README']],
+['La extensión de un archivo Markdown es:|.md|.mdx.exe|.txt.doc|0|Markdown usa .md.','El símbolo para un título grande es:|#|$|%|0|Un # al inicio de línea.','El README se muestra:|Automáticamente al abrir el repositorio|Solo si lo pides por correo|Nunca|0|Es la portada.','Para negrita en Markdown usas:|**texto**|((texto))|<<texto>>|0|Doble asterisco.','Un buen README para portafolio QA incluye:|Quién eres, proyectos y cómo contactarte|Solo un emoji|Tus contraseñas|0|Debe informar rápido.','Qué debes evitar subir:|Contraseñas, claves y datos reales|Casos de prueba|Un README|0|Información sensible nunca.','Si subes una clave por error:|La cambias de inmediato|La dejas|Esperas a que nadie la vea|0|El historial puede conservarla.','Para crear una carpeta desde la web de GitHub:|Escribir nombre-carpeta/archivo.md al crear un archivo|No se puede|Reiniciar el equipo|0|La barra / crea la carpeta.','Los nombres de carpetas conviene que:|Eviten espacios y tildes|Tengan emojis|Sean muy largos|0|Evita problemas.'],
+['Entrega opcional: pega el enlace a tu README y la lista de carpetas que creaste.']),
+
+LV('Nivel 3 · Git en tu computador','Git local: commit e historial','Instalar Git, configurarlo y usar el ciclo de trabajo: crear un repo local, preparar cambios, hacer commits y ver el historial.','4–5 h',
+[['Instalar y configurar Git',`Descarga Git desde git-scm.com e instálalo con las opciones por defecto. Para comprobarlo, abre la terminal (Git Bash en Windows) y escribe: git --version
+Configura tu identidad una sola vez:
+git config --global user.name "Tu Nombre"
+git config --global user.email "tu-correo@ejemplo.com"
+Usa el mismo correo que en tu cuenta de GitHub (o el correo privado que GitHub te ofrece) para que tus commits se asocien a ti.`],
+['Los tres lugares de un cambio',`En Git, un archivo pasa por tres zonas:
+1) **Directorio de trabajo:** donde editas.
+2) **Área de preparación (staging):** donde eliges qué cambios entrarán en el próximo commit.
+3) **Repositorio:** donde quedan guardados los commits.
+Flujo: editas > git add (preparas) > git commit (guardas).`],
+['Comandos esenciales',`git init: convierte la carpeta actual en un repositorio.
+git status: muestra qué cambió y qué está preparado.
+git add archivo (o git add .): prepara cambios.
+git commit -m "mensaje": guarda los cambios preparados.
+git log --oneline: muestra el historial resumido.
+git diff: muestra qué líneas cambiaron.
+Consejo: usa git status todo el tiempo. Es seguro y te dice dónde estás.`],
+['Buenos mensajes de commit y .gitignore',`Un buen mensaje es corto y dice qué cambió: "Agrego 10 casos de prueba del login" es mejor que "cambios" o "asdf". Haz commits pequeños y frecuentes.
+El archivo **.gitignore** lista lo que Git debe ignorar: archivos temporales, carpetas pesadas como node_modules, y archivos con claves o datos privados. Cada línea es un nombre o patrón.
+Ejemplo de líneas: node_modules/ · .env · *.log`],
+['Deshacer sin miedo',`Ver antes de actuar: git status y git diff.
+Quitar un archivo de la preparación: git restore --staged archivo.
+Descartar cambios no guardados de un archivo: git restore archivo (cuidado: esos cambios se pierden).
+Corregir el último mensaje de commit: git commit --amend (solo si aún no lo publicaste).
+Regla de seguridad: si no estás seguro de un comando, consulta antes de ejecutarlo; los comandos con --force o reset --hard pueden borrar trabajo.`]],
+[LB('Taller 1 · Instala y configura (30 min)',['Descarga e instala Git desde git-scm.com.','Abre la terminal y comprueba con git --version.','Configura user.name y user.email y verifica con git config --list.'],[['Descargar Git','https://git-scm.com/downloads']]),
+LB('Taller 2 · Tu primer repo local (45 min)',['Crea una carpeta practica-git y entra con cd.','Ejecuta git init y luego git status.','Crea un archivo notas.txt con un texto, usa git add notas.txt y git commit -m "Primer commit".','Edita el archivo, mira git diff, haz otro commit y revisa git log --oneline.']),
+LB('Taller 3 · .gitignore (20 min)',['Crea un archivo secreto.txt con texto cualquiera.','Crea .gitignore con la línea secreto.txt.','Ejecuta git status y comprueba que Git ya no lo muestra.']),
+LB('Taller 4 · Deshacer (30 min)',['Edita notas.txt sin guardar commit y descarta el cambio con git restore notas.txt.','Haz git add de un archivo y quítalo de la preparación con git restore --staged.','Anota qué hace cada comando con tus palabras.'])],
+[['Git (descarga)','https://git-scm.com/downloads','Instalador oficial'],['Pro Git · Fundamentos','https://git-scm.com/book/es/v2/Fundamentos-de-Git-Obteniendo-un-repositorio-Git','Capítulo en español'],['Learn Git Branching','https://learngitbranching.js.org/?locale=es_ES','Práctica visual e interactiva'],['Git Cheat Sheet','https://education.github.com/git-cheat-sheet-education.pdf','Resumen de comandos']],
+['El comando que convierte una carpeta en repositorio es:|git init|git start|git new|0|init = inicializar.','Para ver qué cambió y qué está preparado:|git status|git show|git open|0|Úsalo siempre.','Para preparar un archivo antes del commit:|git add|git push|git clone|0|add lo agrega al staging.','Para guardar los cambios preparados:|git commit -m "mensaje"|git save|git write|0|Commit con mensaje.','Para ver el historial resumido:|git log --oneline|git history|git list|0|log muestra los commits.','Qué hace .gitignore:|Le dice a Git qué archivos ignorar|Borra archivos|Sube todo a GitHub|0|Evita versionar archivos privados o pesados.','Un buen mensaje de commit es:|Agrego 10 casos de prueba del login|cambios|asdf|0|Claro y específico.','Para descartar cambios no guardados de un archivo:|git restore archivo|git add archivo|git log|0|Cuidado: se pierden.','Antes de ejecutar un comando con --force debes:|Entender qué borra|Ejecutarlo rápido|Ignorar el aviso|0|Puede destruir trabajo.'],
+['Entrega opcional: pega la salida de git log --oneline de tu repositorio de práctica y explica qué hace cada commit.']),
+
+LV('Nivel 4 · Conectar Git con GitHub','Clone, push y pull','Conectar tu repositorio local con GitHub: clonar, enviar tus commits (push) y traer cambios (pull).','3–4 h',
+[['El repositorio remoto',`Un **remoto** es una copia del repo alojada en otro lugar, normalmente GitHub. Por convención se llama origin.
+Comandos clave:
+git clone URL: descarga un repo de GitHub a tu computador (crea la carpeta y deja el remoto configurado).
+git remote -v: muestra los remotos configurados.
+git push: envía tus commits locales a GitHub.
+git pull: trae los cambios de GitHub y los une con los tuyos.`],
+['Autenticarse con GitHub',`GitHub ya no acepta tu contraseña normal para operaciones Git por HTTPS. Opciones seguras:
+• **Git Credential Manager:** viene con Git para Windows; al hacer push abre el navegador para que inicies sesión y guarda el acceso.
+• **GitHub Desktop** o **GitHub CLI** (gh auth login): inician sesión por ti.
+• **Token de acceso personal:** una clave que generas en Settings > Developer settings. Trátalo como una contraseña: no lo compartas ni lo subas.
+• **Claves SSH:** más avanzado, opcional por ahora.`],
+['Flujo diario de trabajo',`1) git pull: trae lo último antes de empezar.
+2) Trabaja y guarda cambios.
+3) git status para revisar.
+4) git add . y git commit -m "mensaje".
+5) git push para publicar.
+Si GitHub tiene cambios que tú no tienes, el push puede rechazarse: primero haz git pull y luego git push.`],
+['Conectar un repo local ya existente',`Si creaste el repo en tu computador primero:
+1) Crea un repo vacío en GitHub (sin README).
+2) git remote add origin URL
+3) git branch -M main
+4) git push -u origin main
+El -u deja la rama enlazada, así luego basta con git push y git pull.`],
+['Alternativa visual: GitHub Desktop',`**GitHub Desktop** es una aplicación gratuita que hace clone, commit, push y pull con botones. Es una buena forma de empezar. Entender los comandos igual es útil: en una empresa te los pedirán y en las entrevistas preguntan por ellos.`]],
+[LB('Taller 1 · Clona tu portafolio (30 min)',['Copia la URL de tu repo qa-portafolio con el botón verde Code.','En la terminal ejecuta git clone URL y entra a la carpeta.','Ejecuta git remote -v y git log --oneline para ver que trae el historial.'],[['GitHub Desktop','https://desktop.github.com']]),
+LB('Taller 2 · Edita y publica (45 min)',['Abre el README en tu computador y agrega una línea nueva.','Haz git add ., git commit -m "..." y git push.','Recarga GitHub y confirma que el cambio aparece.']),
+LB('Taller 3 · Pull desde la web (30 min)',['Edita un archivo directamente en la web de GitHub y haz commit.','En tu computador ejecuta git pull y verifica que el cambio llegó.']),
+LB('Taller 4 · Autenticación segura (30 min)',['Revisa qué método de inicio de sesión te pidió Git al hacer push.','Si usaste un token, guárdalo en un gestor de contraseñas y comprueba que nunca quedó dentro de un archivo del repo.'])],
+[['Pro Git · Remotos','https://git-scm.com/book/es/v2/Fundamentos-de-Git-Trabajar-con-repositorios-remotos','Capítulo en español'],['GitHub Desktop','https://desktop.github.com','Cliente visual gratuito'],['GitHub CLI','https://cli.github.com','Herramienta de línea de comandos'],['Autenticación en GitHub','https://docs.github.com/es/authentication','Documentación oficial']],
+['Para descargar un repositorio de GitHub:|git clone URL|git download|git get|0|clone copia el repo.','El remoto por defecto suele llamarse:|origin|server|github|0|Convención de Git.','Para enviar tus commits a GitHub:|git push|git send|git up|0|push publica.','Para traer los cambios de GitHub:|git pull|git take|git fetchall|0|pull descarga y une.','Un token de acceso personal debe tratarse como:|Una contraseña: no se comparte ni se sube|Un dato público|Un nombre de usuario|0|Da acceso a tu cuenta.','Si un push es rechazado porque GitHub tiene cambios nuevos:|Haces git pull y vuelves a intentar|Borras el repo|Usas siempre --force|0|Primero integra los cambios.','Qué hace git remote -v:|Muestra los remotos configurados|Borra el remoto|Crea una rama|0|-v = verbose.','El flujo diario sano empieza con:|git pull|git push --force|borrar la carpeta|0|Trae lo último antes de trabajar.','GitHub Desktop sirve para:|Hacer clone, commit, push y pull con botones|Probar apps|Instalar Windows|0|Es un cliente visual.'],
+['Entrega opcional: pega el enlace a un commit hecho desde tu computador y cuéntame qué comandos usaste.']),
+
+LV('Nivel 5 · Ramas y Pull Requests','Ramas y Pull Requests','Trabajar con ramas, abrir y revisar Pull Requests, resolver un conflicto sencillo y colaborar con Issues.','4–6 h',
+[['Qué es una rama',`Una **rama** es una línea de trabajo independiente. Sirve para probar algo sin afectar main. Si funciona, la unes (merge); si no, la descartas.
+Comandos:
+git branch: lista las ramas.
+git switch -c nombre: crea una rama y se pasa a ella.
+git switch main: vuelve a main.
+git merge nombre: une esa rama a la actual.
+git push -u origin nombre: publica la rama en GitHub.
+Nombres claros: agregar-casos-login, corregir-readme.`],
+['Pull Request (PR)',`Un **Pull Request** es una solicitud en GitHub para unir tu rama a main. Ahí otras personas revisan, comentan y aprueban antes de unir.
+Pasos: 1) crea una rama y haz commits. 2) haz push de la rama. 3) en GitHub toca Compare & pull request. 4) escribe un título y una descripción clara. 5) revisa los cambios y confirma con Create pull request. 6) tras la revisión, Merge pull request.
+Un buen PR es pequeño, tiene una descripción y explica cómo verificarlo.`],
+['Conflictos de merge',`Un **conflicto** aparece cuando dos ramas cambiaron las mismas líneas y Git no sabe cuál conservar. Git marca el archivo con <<<<<<<, ======= y >>>>>>>.
+Cómo resolverlo: abre el archivo, decide qué texto queda, borra las marcas, guarda, haz git add y git commit.
+No es un error grave: es normal en equipos. Resuélvelo con calma y pregunta si dudas.`],
+['Issues: el seguimiento de tareas y bugs',`Los **Issues** de GitHub registran tareas, ideas y bugs. Tienen título, descripción, etiquetas (labels), responsable y estado.
+Si en la descripción de un PR escribes "Closes #12", al unirse el PR se cierra el Issue 12 automáticamente.
+Esto es muy parecido a Jira: por eso un QA puede practicar el reporte de bugs en GitHub.`],
+['Revisión de código y colaboración',`En un PR puedes comentar líneas, sugerir cambios y aprobar. Reglas de cortesía: sé específico, amable y enfocado en el cambio, no en la persona.
+Para practicar con otras personas existen repositorios abiertos de práctica (por ejemplo los cursos de GitHub Skills) donde puedes abrir tu primer PR guiado.`]],
+[LB('Taller 1 · Tu primera rama (40 min)',['En tu repo clonado ejecuta git switch -c agregar-seccion-contacto.','Agrega una sección Contacto al README y haz commit.','Publica con git push -u origin agregar-seccion-contacto.']),
+LB('Taller 2 · Tu primer Pull Request (40 min)',['En GitHub toca Compare & pull request.','Escribe un título y una descripción de qué cambia y cómo revisarlo.','Revisa la pestaña Files changed, crea el PR y únelo con Merge pull request.','Vuelve a main en tu computador y ejecuta git pull.'],[['GitHub Skills · Introducción','https://skills.github.com']]),
+LB('Taller 3 · Provoca y resuelve un conflicto (60 min)',['Crea dos ramas que cambien la misma línea del README de forma distinta.','Une la primera a main y luego intenta unir la segunda: aparecerá el conflicto.','Edita el archivo, quita las marcas, deja el texto final, haz git add y git commit.']),
+LB('Taller 4 · Issues como reportes de bug (40 min)',['En tu repo ve a Issues > New issue.','Escribe un bug de ejemplo con pasos para reproducir, resultado esperado y resultado real.','Agrega una etiqueta (bug) y ciérralo desde un PR usando Closes #número.'])],
+[['Learn Git Branching','https://learngitbranching.js.org/?locale=es_ES','Ramas de forma visual'],['GitHub Skills','https://skills.github.com','Cursos prácticos gratuitos'],['Pro Git · Ramas','https://git-scm.com/book/es/v2/Ramificaciones-en-Git-¿Qué-es-una-rama%3F','Capítulo en español'],['GitHub Docs · Pull Requests','https://docs.github.com/es/pull-requests','Documentación oficial']],
+['Una rama sirve para:|Trabajar sin afectar main|Borrar el historial|Cambiar el nombre de usuario|0|Aísla el trabajo.','Para crear una rama y pasar a ella:|git switch -c nombre|git make nombre|git new nombre|0|-c = create.','Un Pull Request es:|Una solicitud para unir tu rama a otra con revisión|Un tipo de archivo|Un error|0|Permite revisar antes de unir.','Un conflicto de merge ocurre cuando:|Dos ramas cambian las mismas líneas|Escribes mal un comando|No hay internet|0|Git no sabe cuál conservar.','Para resolver un conflicto debes:|Editar el archivo, quitar las marcas y hacer commit|Borrar el repositorio|Reiniciar el equipo|0|Decides el texto final.','Escribir Closes #12 en un PR:|Cierra el Issue 12 al unir el PR|Borra el PR|Cambia la rama|0|Palabra clave de GitHub.','Un buen Pull Request es:|Pequeño y con una descripción clara|Gigante y sin explicación|Anónimo|0|Facilita la revisión.','Los Issues de GitHub se parecen a:|Los tickets de Jira|Un antivirus|Una hoja de cálculo|0|Registran tareas y bugs.','Una buena revisión de código es:|Específica y respetuosa|Agresiva|Sin leer|0|Se comenta el cambio, no a la persona.'],
+['Entrega opcional: pega el enlace a tu primer Pull Request unido y a un Issue que hayas cerrado.']),
+
+LV('Nivel 6 · GitHub para tu portafolio QA','Portafolio QA en GitHub','Publicar un portafolio profesional: README final, GitHub Pages, perfil de GitHub y una introducción a GitHub Actions.','4–6 h',
+[['Tu perfil de GitHub como carta de presentación',`Quien te evalúa abrirá tu perfil. Cuida: foto, nombre real, una frase de presentación (bio), tu ubicación general y el enlace a LinkedIn.
+**Repositorios fijados (pinned):** puedes destacar hasta 6. Fija qa-portafolio y tus mejores proyectos.
+**README de perfil:** si creas un repositorio con el mismo nombre que tu usuario, su README aparece en tu perfil. Úsalo para presentarte en pocas líneas.`],
+['Un README de portafolio profesional',`Estructura recomendada: 1) Presentación breve. 2) Herramientas (Jira, Postman, SQL, Cypress, etc.). 3) Tabla de proyectos con enlace. 4) Cómo contactarte.
+Para cada proyecto: qué aplicación probaste, qué hiciste (casos, bugs, API, SQL), qué encontraste y capturas o evidencias. Escribe resultados reales, sin inventar experiencia.
+Si puedes, agrega una versión corta en inglés.`],
+['GitHub Pages: publica tu portafolio como sitio web',`**GitHub Pages** convierte un repo en una página web gratuita. En Settings > Pages elige Deploy from a branch, la rama main y la carpeta root. Con un archivo index.html o un README bien armado puedes mostrar tu trabajo con un enlace como https://tu-usuario.github.io/qa-portafolio/.
+Los cambios tardan uno o dos minutos en aparecer. El enlace puedes ponerlo en tu LinkedIn y tu CV.`],
+['Introducción a GitHub Actions',`**GitHub Actions** ejecuta tareas automáticas cuando algo ocurre en tu repo (por ejemplo, un push): correr pruebas, revisar el código, publicar un sitio. Se definen en archivos .yml dentro de la carpeta .github/workflows/.
+Para un QA es la puerta a la **integración continua (CI)**: tus pruebas automatizadas se ejecutan solas en cada cambio y muestran un check verde o una X roja.
+Por ahora basta con entender el concepto y ver un ejemplo. Lo avanzado viene con la automatización.`],
+['Etiqueta y buenas prácticas',`Revisa tu portafolio como si fueras el reclutador: ¿se entiende en 2 minutos? ¿Los enlaces funcionan? ¿Hay datos privados? ¿La ortografía es correcta?
+Mantén commits pequeños y con buen mensaje: el historial también muestra tu forma de trabajar. Actualiza tu portafolio cada vez que termines un nivel del curso.`]],
+[LB('Taller 1 · Perfil profesional (30 min)',['Sube una foto, escribe tu nombre real y una bio de una línea.','Agrega el enlace a tu LinkedIn y fija qa-portafolio en tu perfil.']),
+LB('Taller 2 · README de perfil (30 min)',['Crea un repositorio público con el mismo nombre que tu usuario de GitHub y un README.','Escribe 4 o 5 líneas: quién eres, qué estás aprendiendo y cómo contactarte.']),
+LB('Taller 3 · Publica con GitHub Pages (30 min)',['En qa-portafolio ve a Settings > Pages y activa Deploy from a branch con main y root.','Espera uno o dos minutos y abre el enlace.','Pega el enlace en tu LinkedIn.']),
+LB('Taller 4 · Tu primer workflow (45 min)',['En tu repo crea el archivo .github/workflows/saludo.yml.','Con la ayuda de la documentación escribe un workflow que se ejecute en cada push e imprima un mensaje.','Abre la pestaña Actions y verifica el check verde.'],[['Guía de GitHub Actions','https://docs.github.com/es/actions/quickstart']])],
+[['GitHub Pages','https://pages.github.com','Publica un sitio gratis'],['GitHub Actions · inicio rápido','https://docs.github.com/es/actions/quickstart','Documentación en español'],['Perfil de GitHub','https://docs.github.com/es/account-and-profile/setting-up-and-managing-your-github-profile','Cómo configurarlo'],['GitHub Skills','https://skills.github.com','Cursos prácticos']],
+['GitHub Pages sirve para:|Publicar un sitio web desde un repositorio|Instalar Git|Escribir comandos|0|Aloja páginas estáticas.','Un repositorio con el mismo nombre que tu usuario:|Muestra su README en tu perfil|Se borra solo|Bloquea tu cuenta|0|Es el README de perfil.','Los repositorios fijados (pinned) sirven para:|Destacar tus mejores proyectos|Ocultar repos|Borrar el historial|0|Hasta 6 en el perfil.','GitHub Actions permite:|Ejecutar tareas automáticas cuando ocurre algo en el repo|Cambiar tu foto|Comprar dominios|0|Base de la integración continua.','Los workflows se guardan en:|.github/workflows|/workflows-github|/actions-final|0|Carpeta estándar.','CI significa:|Integración continua|Código interno|Cambio inmediato|0|Pruebas automáticas en cada cambio.','En un portafolio QA debes escribir:|Resultados reales y verificables|Experiencia inventada|Solo emojis|0|La honestidad es clave.','Antes de compartir tu portafolio conviene revisar:|Enlaces, ortografía y que no haya datos privados|Solo los colores|Nada|0|Revísalo como reclutador.','Cuando termines un nivel del curso debes:|Actualizar tu portafolio|Borrar el repositorio|Cambiar de cuenta|0|Mantenerlo vivo.'],
+['Entrega opcional: pega el enlace a tu portafolio publicado con GitHub Pages y el enlace a tu perfil de GitHub.'])
+];
+GITL.forEach(l=>{l.qs=l.qs.map(mq)});
+TOW.git={n:'Academia Git y GitHub',em:ic('save'),c:'#e4572f',fl:GITL};
+
 
 /* ============ LINKEDIN · vista previa del perfil ============ */
 const QSK=['Testing manual','Diseño de casos de prueba','Reporte de defectos · Jira','Pruebas web y DevTools','SQL','Pruebas de API · Postman','Automatización · Cypress','Plan de pruebas y métricas'];
@@ -2068,11 +2266,11 @@ const gymLvl=()=>Math.min(10,1+Math.floor(gymXP()/24));
 const GTIT=['','Arrancando','Constante','En movimiento','Tomando forma','Más ligero','Definiendo','Atlético','Fuerte','Imparable','Leyenda'];
 const V={tab:'avatar',i:null,run:null};
 const pf=document.createElement('aside');pf.id='pf';document.body.appendChild(pf);
-const TABS=[['avatar','<i class="ic ic-user"></i> Avatar'],['qa','<i class="ic ic-flask"></i> Escuela QA'],['it','<i class="ic ic-monitor"></i> Centro IT'],['en','<i class="ic ic-globe"></i> Inglés'],['gym','<i class="ic ic-dumbbell"></i> Gym'],['li','<i class="ic ic-network"></i> LinkedIn'],['lib','<i class="ic ic-book"></i> Biblioteca'],['job','<i class="ic ic-briefcase"></i> Empleo']];
+const TABS=[['avatar','<i class="ic ic-user"></i> Avatar'],['qa','<i class="ic ic-flask"></i> Escuela QA'],['it','<i class="ic ic-monitor"></i> Centro IT'],['en','<i class="ic ic-globe"></i> Inglés'],['gym','<i class="ic ic-dumbbell"></i> Gym'],['git','<i class="ic ic-save"></i> Git y GitHub'],['li','<i class="ic ic-network"></i> LinkedIn'],['lib','<i class="ic ic-book"></i> Biblioteca'],['job','<i class="ic ic-briefcase"></i> Empleo']];
 function gymSVG(l){const f=1-(l-1)/9,bx=24+32*f,m=l>=7?5:0;
  return `<svg viewBox="0 0 160 190" width="150" role="img" aria-label="Avatar gym nivel ${l}"><ellipse cx="80" cy="184" rx="${bx+16}" ry="6" fill="#0002"/><rect x="${80-bx*.5-6}" y="128" width="16" height="50" rx="8" fill="#3b4a6b"/><rect x="${80+bx*.5-10}" y="128" width="16" height="50" rx="8" fill="#3b4a6b"/><ellipse cx="${80-bx-3}" cy="102" rx="${9+5*f+m}" ry="27" fill="#f1c6a0"/><ellipse cx="${80+bx+3}" cy="102" rx="${9+5*f+m}" ry="27" fill="#f1c6a0"/><ellipse cx="80" cy="100" rx="${bx}" ry="44" fill="#d8372f"/>${f>.25?`<ellipse cx="80" cy="116" rx="${bx*.82}" ry="${10+22*f}" fill="#e5463f"/>`:''}<circle cx="80" cy="52" r="${20+4*f}" fill="#f1c6a0"/><circle cx="73" cy="49" r="2.4" fill="#2b2a28"/><circle cx="87" cy="49" r="2.4" fill="#2b2a28"/><path d="M72 ${60+f*2} Q80 ${66+f*3} 88 ${60+f*2}" stroke="#2b2a28" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M${60-4*f} 38 Q80 22 ${100+4*f} 38 L${100+4*f} 41 L${60-4*f} 41Z" fill="#2b2a28"/>${l>=4?'<rect x="58" y="38" width="44" height="6" fill="#fff"/>':''}${l>=10?'<path d="M62 24 L68 12 L80 22 L92 12 L98 24Z" fill="#e0a93b"/>':''}</svg>`}
 function vAvatar(){const L=lvl(),rc=['#cfc8b8','#8fb4e8','#6ac17b','#e0a93b','#d8372f'][Math.min(4,Math.ceil(L/2))];
- const sk=[];for(const t of['it','qa','en'])TOW[t].fl.forEach((f,i)=>{if(passedF(t,i))sk.push(f.sk)});
+ const sk=[];for(const t of['it','qa','git','en'])TOW[t].fl.forEach((f,i)=>{if(passedF(t,i))sk.push(f.sk)});
  const ed=towerDone('en'),gl=gymLvl();
  let h=`<div style="text-align:center"><div class="av" style="border-color:${rc};${A.photo?`background-image:url('${A.photo}')`:''}">${A.photo?'':'<i class="ic ic-user"></i>'}</div><label class="btn ghost" style="display:inline-block;margin-top:8px"><i class="ic ic-camera"></i> Subir mi foto<input type="file" accept="image/*" id="phf" hidden></label><h3 style="margin:10px 0 2px">${TITLES[L]}</h3><div class="muted">Nivel ${L} de 8 · cada piso aprobado mejora tu perfil</div></div>`;
  h+=`<div class="g2"><div class="card"><b><i class="ic ic-monitor"></i> IT</b><br>${towerDone('it')}/${TOW.it.fl.length} niveles</div><div class="card"><b><i class="ic ic-flask"></i> QA</b><br>${towerDone('qa')}/${TOW.qa.fl.length} pisos</div><div class="card"><b><i class="ic ic-globe"></i> Inglés</b><br>${ed?TOW.en.fl[ed-1].sk.replace('Inglés ',''):'Sin nivel'}</div><div class="card"><b><i class="ic ic-dumbbell"></i> Gym</b><br>Nivel ${gl}/10 · Academia ${towerDone('gym')}/${TOW.gym.fl.length}</div><div class="card"><b><i class="ic ic-briefcase"></i> LinkedIn</b><br>${Math.round(liPct()*100)}% completo</div></div><h4>Habilidades ganadas</h4>`;
@@ -2167,7 +2365,7 @@ function scaffold(b,z){
  ctx.fillStyle=C('#555');ctx.fillRect(ce[0]-5,ce[1]-1,7,7);
  if(NIGHT>.25&&Math.sin(TT*3+b.ph)>0){ctx.fillStyle='rgba(255,60,50,.95)';ctx.beginPath();ctx.arc(je[0],je[1]-2,2.4,0,TAU);ctx.fill();ctx.fillStyle='rgba(255,60,50,.25)';ctx.beginPath();ctx.arc(je[0],je[1]-2,7,0,TAU);ctx.fill()}
 }
-const TW_OF={school:'qa',it:'it',english:'en',gym:'gym'},TAB_OF={school:'qa',it:'it',english:'en',gym:'gym',li:'li',certs:'lib'};
+const TW_OF={school:'qa',it:'it',english:'en',gym:'gym',git:'git'},TAB_OF={school:'qa',it:'it',english:'en',gym:'gym',git:'git',li:'li',certs:'lib'};
 const bProg=b=>{if(b.id==='li')return liPct();const t=TW_OF[b.id];if(t)return towerDone(t)/TOW[t].fl.length;if(b.id==='certs')return 1;return b.id==='hall'?totalProgress():progress(b.dept)};
 const bFrac=b=>{if(b.id==='li')return .12+.82*liPct();const t=TW_OF[b.id];return t?.12+.82*towerDone(t)/TOW[t].fl.length:.38};
 const bDone=b=>true; // Diseño final: todos los edificios nacen terminados; no hay grúas ni andamios.
