@@ -294,6 +294,10 @@ button:disabled{opacity:.45;cursor:not-allowed}
 .qa-room .qa-lab-chip{top:14px;left:14px;right:auto;bottom:auto;z-index:4;color:#a9ffe7;background:#092b31df;border:1px solid #39bba9;border-radius:7px;font-size:9px}
 @media(max-width:760px){.qa-room{aspect-ratio:3/2;min-height:0}.qa-room .qa-hotspot{font-size:8px;padding:5px 6px}.qa-room .qa-hotspot.nova{left:43%;top:32%}.qa-room .qa-hotspot.byte{left:65%;top:44%}.qa-room .qa-hotspot.patch{left:76%;top:59%}.qa-room .qa-room-label{font-size:8px;left:8px;bottom:8px}.qa-room .qa-lab-chip{font-size:7px;left:8px;top:8px}}
 
+.qa-agent[data-agent="marta"] .p-body{background:#d9608a;box-shadow:0 5px 0 #a8406a,-5px 3px 0 #dca27d,35px 3px 0 #dca27d}
+.qa-agent[data-agent="diego"] .p-body{background:#3d7fd0;box-shadow:0 5px 0 #2a5a96,-5px 3px 0 #dca27d,35px 3px 0 #dca27d}
+.qa-agent[data-agent="andres"] .p-body{background:#4a9c64;box-shadow:0 5px 0 #2f7048,-5px 3px 0 #dca27d,35px 3px 0 #dca27d}
+.wk-pre{background:#141a24;color:#d8e4f4;border-radius:8px;padding:9px 11px;margin:8px 0 2px;font:11.5px/1.5 ui-monospace,Menlo,monospace;white-space:pre-wrap;word-break:break-all;overflow:auto}
 .qa-agent[data-agent="hub"] .p-body{background:#e4572f;box-shadow:0 5px 0 #b9411f,-5px 3px 0 #dca27d,35px 3px 0 #dca27d}
 .qa-agent[data-agent="commit"] .p-body{background:#2f7fd0;box-shadow:0 5px 0 #1f5a9a,-5px 3px 0 #dca27d,35px 3px 0 #dca27d}
 .qa-agent[data-agent="merge"] .p-body{background:#8a5ad8;box-shadow:0 5px 0 #6a3fb0,-5px 3px 0 #dca27d,35px 3px 0 #dca27d}
@@ -304,6 +308,29 @@ button:disabled{opacity:.45;cursor:not-allowed}
 /* hotspots flotando sobre los personajes animados */
 .qa-room .qa-hotspot{pointer-events:auto;will-change:left,top}
 .qa-room canvas.qa-scene-img{touch-action:manipulation}
+.wk-hero{display:flex;gap:12px;align-items:center;margin-bottom:4px}
+.wk-av{flex:none;width:32px;height:32px;border-radius:10px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:13px}
+.wk-m{display:flex;gap:9px;align-items:flex-start;margin:10px 0}
+.wk-b{background:var(--soft);border-radius:4px 14px 14px 14px;padding:9px 12px;font-size:13.5px;line-height:1.55}
+.wk-b small{display:block;font-weight:800;font-size:11px;margin-bottom:2px;letter-spacing:.2px}
+.wk-b code,.wk-th code{background:#fff;border:1px solid var(--line);border-radius:5px;padding:0 4px;font-size:12px;word-break:break-all}
+.wk-lk{display:inline-block;margin:8px 6px 0 0;text-decoration:none;font-size:12px;padding:7px 11px}
+.wk-ck{margin:2px 0 12px 41px}
+.wk-chat{margin:8px 0}
+.wk-th h3{margin:6px 0 8px}
+.wk-id{display:inline-block;font:700 11px ui-monospace,Menlo,monospace;background:var(--ink);color:#fff;border-radius:6px;padding:2px 6px}
+.wk-tk{display:block;width:100%;text-align:left;border:1px solid var(--line);border-radius:12px;background:#fff;padding:11px 13px;margin:8px 0;font:inherit;font-size:13.5px;color:var(--ink);cursor:pointer;line-height:1.5}
+.wk-tk:hover:not(:disabled){border-color:var(--ink)}
+.wk-tk.lock{opacity:.55;cursor:not-allowed}
+.wk-tk.done{border-color:var(--ok)}
+.wk-form label{display:block;font-size:12px;font-weight:700;margin:10px 0 3px}
+.wk-form .in{width:100%;box-sizing:border-box}
+.wk-form textarea.in{resize:vertical;min-height:72px}
+.wk-rv{list-style:none;padding:0;margin:6px 0}
+.wk-rv li{font-size:13px;line-height:1.45;padding:8px 10px;border-radius:9px;margin:5px 0;background:var(--soft)}
+.wk-rv li.ok{border-left:3px solid var(--ok)}.wk-rv li.no{border-left:3px solid var(--red)}
+.qa-work{margin-top:12px;border:0;border-radius:12px;padding:12px 16px;color:#fff;font-weight:800;font-size:12px;background:linear-gradient(120deg,#e28a2b,#d6492a);box-shadow:0 8px 18px #d6492a40;cursor:pointer}
+.qa-work:hover{filter:brightness(1.07);transform:translateY(-1px)}
 </style>
 </head>
 <body>
@@ -328,7 +355,7 @@ button:disabled{opacity:.45;cursor:not-allowed}
 <p>Formarte como <b>QA Tester</b> hasta estar listo para trabajar, mejorar tu físico con constancia, aprender inglés e IT y construir tu presencia profesional. Nada se regala: cada nivel se gana aprobando.</p>
 <h3><i class="ic ic-compass"></i> Los edificios</h3>
 <ul>
-<li><b>Escuela QA</b> (8 niveles): lecciones, talleres, quiz, examen y una entrega que evalúa Claude.</li>
+<li><b>Escuela QA = Empresa ZOWL QA Labs</b>: 15 proyectos reales con un equipo (Nova, Byte, Patch, Marta, Diego y tú, Andrés). Aprendes la teoría dentro de cada proyecto, descargas programas, practicas y entregas. Si necesitas base de Git, redes o inglés, aparece el botón «Aprende lección» sin salir de la empresa.</li>
 <li><b>Centro IT</b> (4 niveles): hardware, redes, soporte y seguridad.</li>
 <li><b>Academia de Inglés</b> (A1 a C2): lecciones, talleres y evaluación por nivel.</li>
 <li><b>Gym</b>: tu avatar sube de nivel con objetivos diarios y una academia de 4 niveles.</li>
@@ -1657,234 +1684,7 @@ const mq=s=>{const p=s.split('|');return{q:p[0],o:p.slice(1,4),a:+p[4],e:p[5]||'
 const FLR=(t,sk,th,pr,qs)=>({t,sk,th,pr,qs:qs.map(mq)});
 /* Formato pregunta: texto|op1|op2|op3|índice correcto|explicación. Primera mitad = quiz, segunda mitad = examen. */
 /* ============ ESCUELA QA · 8 niveles (cada piso se publica al evaluar el anterior) ============ */
-const QAL=[
-{t:'Nivel 1 · Fundamentos: qué es QA',sk:'Fundamentos de QA',min:'6–8 h',
- g:'Al terminar sabrás explicar qué es QA, cómo se construye un software, qué tipos de pruebas existen y habrás hecho tus primeras pruebas reales en una web.',
- sello:'1z0x6s2',
- th:[
-['1 · ¿Qué es la calidad y qué hace un QA?',`Piensa en una app de delivery: si cobra dos veces tu pedido, se cierra al pagar o muestra un precio equivocado, pierdes confianza y la empresa pierde dinero. El trabajo de **QA (Quality Assurance / Quality Analyst)** es evitar que eso llegue al usuario.
-
-**Calidad** no es "que no tenga errores". Es que el producto cumpla lo que se prometió (requisitos) y además sea usable, confiable, seguro y rápido.
-
-Tres palabras que se confunden:
-• **QA (aseguramiento):** prevenir defectos mejorando procesos (revisar requisitos, definir estándares).
-• **QC (control de calidad):** detectar defectos en el producto ya hecho.
-• **Testing (pruebas):** la actividad concreta de ejecutar el software para buscar fallas.
-
-**Un día normal de un QA:** leer requisitos y detectar dudas, diseñar casos de prueba, ejecutar pruebas, reportar bugs, verificar las correcciones, automatizar lo repetitivo y participar en las reuniones del equipo.
-
-**Por qué importa:** un defecto encontrado al escribir el requisito cuesta casi nada; el mismo defecto en producción cuesta muchísimo (clientes afectados, correcciones urgentes, imagen). Por eso QA entra temprano.`],
-['2 · Cómo se construye un software (SDLC) y dónde entra QA',`El **ciclo de vida del software (SDLC)** tiene etapas: 1) requisitos, 2) diseño, 3) desarrollo, 4) pruebas, 5) despliegue (publicar), 6) mantenimiento.
-
-**Cascada:** una etapa tras otra; pruebas al final. Es lento corregir.
-**Ágil / Scrum (lo más usado hoy):** se entrega en ciclos cortos llamados **sprints** (1–4 semanas, normalmente 2). Roles: **Product Owner** (decide qué se construye), **Scrum Master** (ayuda al equipo), **Developers** y **QA**. Reuniones: planning, daily (15 min), review y retrospectiva.
-
-**Historia de usuario:** describe una necesidad: "Como [tipo de usuario] quiero [acción] para [beneficio]". Ejemplo: "Como cliente quiero recuperar mi contraseña para volver a entrar a mi cuenta".
-**Criterios de aceptación:** condiciones para darla por terminada. Formato Given/When/Then: *Dado* que estoy en la pantalla de recuperación, *cuando* ingreso un correo registrado, *entonces* recibo un enlace por email.
-
-**Shift-left:** QA participa desde el inicio. Leer una historia y preguntar "¿cuánto dura el enlace?" o "¿qué pasa si el correo no existe?" ya es hacer QA y evita errores antes de programar.`],
-['3 · Los 7 principios del testing',`Son la base del estándar internacional (ISTQB). Memorízalos con ejemplos:
-• **1. Las pruebas muestran presencia de defectos, no su ausencia.** Encontrar 0 bugs no prueba que no existan.
-• **2. Probar todo es imposible.** Una sola pantalla con varios campos tiene millones de combinaciones; se prioriza por riesgo.
-• **3. Pruebas tempranas.** Revisar requisitos y diseño ahorra mucho.
-• **4. Agrupación de defectos.** Pocos módulos concentran la mayoría de los bugs (pagos, login, integraciones). Pruébalos más.
-• **5. Paradoja del pesticida.** Si repites siempre las mismas pruebas, dejan de encontrar bugs nuevos. Hay que renovarlas.
-• **6. Depende del contexto.** Probar una app bancaria no es igual que un juego.
-• **7. Falacia de ausencia de errores.** Un software sin bugs pero que no resuelve lo que el usuario necesita sigue siendo un fracaso.`],
-['4 · Niveles y tipos de pruebas',`**Niveles (de lo pequeño a lo grande):**
-• **Unitarias:** prueban una función; las hace el developer.
-• **Integración:** prueban que dos módulos funcionan juntos (ej. carrito + pasarela de pago).
-• **Sistema:** prueban el producto completo, como lo usaría el usuario. Aquí vive el QA.
-• **Aceptación (UAT):** el cliente confirma que sirve para su necesidad.
-
-**Tipos:**
-• **Funcionales:** ¿hace lo que debe? (login, pago, búsqueda).
-• **No funcionales:** rendimiento (carga), seguridad, usabilidad, compatibilidad (navegadores y móviles).
-• **Humo (smoke):** revisión rápida de lo crítico tras una nueva versión: ¿abre, inicia sesión, carga?
-• **Regresión:** repetir pruebas después de un cambio para verificar que no se rompió algo que funcionaba.
-• **Exploratorias:** probar sin guion fijo, aprendiendo y diseñando sobre la marcha, con un objetivo (carta de pruebas) y tiempo limitado.
-
-**Caja negra:** pruebas sin ver el código (lo que hace QA normalmente). **Caja blanca:** viendo el código. **Manual vs automatizada:** lo repetitivo y estable se automatiza; lo nuevo y exploratorio se hace a mano.`],
-['5 · Vocabulario y mentalidad de un buen QA',`**Error → Defecto → Fallo:** una persona comete un *error*; eso deja un *defecto* (bug) en el código; al ejecutarlo aparece un *fallo* visible para el usuario.
-**Caso de prueba:** pasos, datos y resultado esperado. **Resultado esperado vs real:** lo que debería pasar vs lo que pasó; la diferencia es el bug.
-**Entornos:** DEV (desarrollo), QA/TEST (pruebas), STG (preproducción) y PROD (usuarios reales). **Build:** versión del software lista para probar.
-**Verificación:** ¿lo construimos bien? (cumple la especificación). **Validación:** ¿construimos lo correcto? (sirve al usuario).
-
-**Habilidades de un QA que consigue empleo:** curiosidad ("¿y si hago esto?"), atención al detalle, pensamiento crítico, comunicación clara y respetuosa (reportas problemas, no culpas a personas), empatía con el usuario y ganas de aprender herramientas (SQL, Postman, automatización: los verás en los siguientes niveles).
-
-**Regla de oro:** un reporte sin pasos para reproducir no sirve; una opinión sin evidencia tampoco.`]],
- pr:[
-{t:'Taller 1 · Prepara tu mesa de trabajo (30 min)',steps:['Instala o actualiza Google Chrome. Aprende a abrir las herramientas del desarrollador con F12 (las usarás mucho).','Instala Visual Studio Code (lo usarás en niveles de automatización).','Crea una hoja de Google Sheets llamada "Mis casos de prueba" con columnas: ID, Título, Pasos, Resultado esperado, Resultado real, Estado (Pasó/Falló).','Crea una carpeta "QA-portafolio" en tu PC o Drive: ahí guardarás todas tus entregas.'],links:[['Google Chrome','https://www.google.com/chrome/'],['Visual Studio Code','https://code.visualstudio.com']]},
-{t:'Taller 2 · Tu primera sesión exploratoria (45 min)',steps:['Abre https://www.saucedemo.com (tienda de práctica hecha para testers). Las credenciales aparecen en la misma pantalla: usa standard_user.','Ponte una carta de pruebas: "Explorar compra de productos para encontrar problemas de uso y de funcionamiento". Cronometra 20 minutos.','Haz todo el flujo: iniciar sesión, ordenar productos, agregar y quitar del carrito, llenar el checkout, finalizar compra. Anota en tu hoja al menos 10 observaciones (qué hiciste, qué esperabas, qué pasó).','Cierra sesión e ingresa con problem_user. Busca por lo menos 3 comportamientos incorrectos (revisa imágenes, botones, orden y formulario). Para cada uno escribe pasos para reproducir, esperado y real.'],links:[['Sauce Demo (práctica)','https://www.saucedemo.com']]},
-{t:'Taller 3 · Caza de bugs guiada (30 min)',steps:['Entra a https://the-internet.herokuapp.com y prueba las páginas Checkboxes, Dropdown, Login Form y Broken Images.','Por cada página escribe 2 casos de prueba en tu hoja (uno que debe pasar y uno negativo) con resultado esperado.','Ejecútalos y marca Pasó/Falló. Captura pantalla de cualquier falla.'],links:[['The Internet (práctica)','https://the-internet.herokuapp.com']]},
-{t:'Taller 4 · Lee como QA (20 min)',steps:['Lee esta historia: "Como cliente quiero recuperar mi contraseña para volver a entrar. Se envía un enlace al correo."','Escribe 5 preguntas que harías al Product Owner antes de que la programen (ej.: duración del enlace, correo no registrado, reglas de la nueva contraseña, límite de intentos, mensajes de error).','Escribe 3 criterios de aceptación en formato Dado / Cuando / Entonces.']}],
- res:[['Google Chrome + DevTools (F12)','https://www.google.com/chrome/','Navegador principal de pruebas'],['Visual Studio Code','https://code.visualstudio.com','Editor para automatización (niveles 7–8)'],['Postman','https://www.postman.com/downloads/','Instálalo ya; lo usarás en el nivel 6'],['Git','https://git-scm.com/downloads','Control de versiones para tu portafolio'],['Cuenta gratuita de Jira','https://www.atlassian.com/software/jira/free','Gestor de bugs (nivel 3)'],['ISTQB · certificación Foundation','https://www.istqb.org','Meta de largo plazo: sílabo gratuito y glosario'],['Ministry of Testing','https://www.ministryoftesting.com','Comunidad y artículos para testers']],
- qs:['¿Cuál describe mejor el rol de QA?|Asegurar que el software cumpla los requisitos y detectar defectos antes que el usuario|Solo programar pruebas automáticas|Diseñar la interfaz|0|QA cuida la calidad durante todo el proceso.','La prevención de defectos mejorando procesos corresponde a:|QA (aseguramiento)|QC|Soporte técnico|0|QC detecta; QA previene.','El "fallo" (failure) es:|El resultado incorrecto visible cuando se ejecuta el software|La equivocación humana|El requisito|0|Error → defecto → fallo.','Un sprint en Scrum suele durar:|1 a 4 semanas|1 año|1 día|0|Lo normal son 2 semanas.','"Las pruebas muestran presencia de defectos" significa:|No pueden demostrar que no existan defectos|Garantizan cero bugs|Solo sirven en móviles|0|Primer principio del testing.','Revisión rápida de lo crítico tras una nueva versión:|Prueba de humo (smoke)|Prueba de rendimiento|Prueba estética|0|Smoke = ¿vale la pena seguir probando?',
- 'Los criterios de aceptación sirven para:|Definir cuándo una historia está terminada y aceptada|Decorar la historia|Elegir colores|0|Hacen verificable la historia.','Probar sin guion fijo, aprendiendo y diseñando mientras se ejecuta:|Prueba exploratoria|Prueba unitaria|Prueba de regresión|0|Se guía con una carta de pruebas y tiempo.','Tras corregir un bug repites pruebas para ver que no se rompió otra cosa:|Regresión|Humo|Carga|0|Evita efectos colaterales.','¿Dónde cuesta más corregir un defecto?|En producción|En los requisitos|Cuesta igual|0|Cuanto más tarde, más caro.','"¿Construimos el producto correcto?" es:|Validación|Verificación|Compilación|0|Verificación = bien hecho; validación = lo correcto.','Llevas meses con los mismos casos y ya no hallas bugs. Debes:|Renovar y variar los casos|Dejar de probar|Repetir igual|0|Paradoja del pesticida.'],
- ent:['Escribe un documento (Google Docs o texto) con estas 4 partes y pégalo en el chat para que yo lo evalúe:','1) Con tus palabras (máx. 10 líneas): qué es QA y la diferencia entre QA, QC y testing. Incluye un ejemplo propio.','2) Tabla con las 10 observaciones de la sesión en Sauce Demo: acción, esperado, real.','3) Los 3 comportamientos incorrectos de problem_user con pasos para reproducir, resultado esperado y real.','4) Tus 5 preguntas y 3 criterios Dado/Cuando/Entonces de la historia de recuperar contraseña.','Rúbrica: claridad, pasos reproducibles, resultado esperado vs real sin opiniones, y preguntas que detectan ambigüedades. Si te falta algo te lo marco y corriges; cuando apruebo te doy tu sello.']},
-{t:'Nivel 2 · Casos de prueba y técnicas de diseño',sk:'Diseño de casos',g:'Casos claros, partición de equivalencia, valores límite, tablas de decisión, trazabilidad.'},
-{t:'Nivel 3 · Reporte de bugs y Jira',sk:'Reporte de bugs & Jira',g:'Reportes profesionales, severidad y prioridad, ciclo del defecto, tableros en Jira.'},
-{t:'Nivel 4 · Pruebas web, DevTools y compatibilidad',sk:'Pruebas web',g:'Pruebas funcionales y exploratorias, DevTools, responsive, usabilidad y accesibilidad básica.'},
-{t:'Nivel 5 · SQL para QA',sk:'SQL',g:'Consultas SELECT, filtros, JOIN, agrupaciones y validación de datos.'},
-{t:'Nivel 6 · APIs y Postman',sk:'APIs & Postman',g:'HTTP, JSON, métodos, códigos, colecciones y pruebas automáticas de API.'},
-{t:'Nivel 7 · Automatización web',sk:'Automatización',g:'JavaScript básico, Git, Cypress/Selenium, selectores y primer framework.'},
-{t:'Nivel 8 · Plan de pruebas, métricas y empleo',sk:'QA listo para trabajar',g:'Plan de pruebas, métricas, ISTQB, portafolio, CV y entrevistas técnicas.'}];
-Object.assign(QAL[1],{min:'6–8 h',sello:'y197an',
-th:[
-['1 · Qué es un caso de prueba',`Un **caso de prueba** es una receta repetible para comprobar UNA cosa. Partes: **ID**, **título**, **precondiciones** (qué debe existir antes), **pasos**, **datos de prueba**, **resultado esperado**, **resultado real**, **prioridad** y **estado** (Pasó/Falló/Bloqueado).
-Buen caso = atómico (prueba una sola cosa), repetible (otra persona obtiene lo mismo), independiente y trazable al requisito.
-Ejemplo: *TC-001 · Login con credenciales válidas.* Pre: usuario registrado. Pasos: 1) abrir /login 2) escribir usuario y clave correctos 3) pulsar Ingresar. Esperado: entra al inicio y muestra su nombre.
-**Escenario** = situación general ("iniciar sesión"); de un escenario salen varios casos (válido, clave mal, vacío, cuenta bloqueada).`],
-['2 · Partición de equivalencia y valores límite',`No puedes probar todos los valores; agrupas los que se comportan igual.
-**Partición de equivalencia:** divides las entradas en clases y pruebas un representante por clase. Campo edad aceptada 18–65 → clases: menor de 18 (inválida), 18–65 (válida), mayor de 65 (inválida), y no numéricos (inválida).
-**Valores límite:** los errores viven en los bordes. Para 18–65 pruebas **17, 18, 65, 66** (y opcionalmente 19 y 64).
-Ejemplo contraseña de 8 a 20 caracteres: límites 7, 8, 20, 21. Combínalo: una técnica elige las clases, la otra elige los valores en los bordes.`],
-['3 · Tabla de decisión y transición de estados',`**Tabla de decisión:** cuando el resultado depende de varias condiciones. Ejemplo descuento: (A) cliente registrado, (B) compra mayor a 100, (C) cupón. Listas todas las combinaciones (2³=8) y escribes la acción esperada de cada una; cada columna es un caso.
-**Transición de estados:** el sistema cambia de estado según eventos. Pedido: Creado → Pagado → Enviado → Entregado; también Creado → Cancelado. Pruebas: cada transición válida y las inválidas (¿se puede enviar un pedido sin pagar? no debe).
-**Pares (pairwise):** cuando hay muchas combinaciones (navegador × sistema × idioma) pruebas todos los pares posibles en vez de todas las combinaciones.`],
-['4 · Experiencia, trazabilidad y prioridad',`**Adivinar errores (error guessing):** usas tu experiencia: campos vacíos, espacios, textos larguísimos, caracteres raros (ñ, emojis, <script>), doble clic, botón atrás.
-**Matriz de trazabilidad:** tabla Requisito ↔ Casos. Garantiza que cada requisito está probado y muestra qué pruebas repetir si un requisito cambia.
-**Cobertura:** % de requisitos o funciones con casos.
-**Priorización por riesgo:** riesgo = probabilidad de fallar × impacto. Pagos y login primero; el color del pie de página después.
-Cada caso se marca positivo (camino feliz) o negativo (datos inválidos); un buen conjunto tiene ambos.`]],
-pr:[
-{t:'Taller 1 · 12 casos para un login (45 min)',steps:['En tu hoja "Mis casos de prueba" escribe 12 casos para el login de https://www.saucedemo.com: válidos, clave incorrecta, usuario vacío, clave vacía, espacios, mayúsculas/minúsculas, usuario bloqueado, etc.','Ejecútalos y anota resultado real y estado de cada uno.'],links:[['Sauce Demo','https://www.saucedemo.com']]},
-{t:'Taller 2 · Partición y límites (30 min)',steps:['Regla: contraseña de 8 a 20 caracteres, con al menos 1 mayúscula y 1 número.','Escribe las clases de equivalencia y los valores límite (7, 8, 20, 21 caracteres + combinaciones sin mayúscula o sin número).','Prueba tu lista en el formulario de registro de un sitio de práctica (ej. https://practicesoftwaretesting.com) y compara.'],links:[['Practice Software Testing','https://practicesoftwaretesting.com']]},
-{t:'Taller 3 · Tabla de decisión (30 min)',steps:['Con las condiciones registrado / compra mayor a 100 / cupón, construye la tabla de 8 combinaciones con el descuento esperado (invéntalo y justifícalo).','Convierte 4 de las columnas en casos de prueba completos.']},
-{t:'Taller 4 · Matriz de trazabilidad (20 min)',steps:['Define 3 requisitos del carrito de Sauce Demo (agregar, quitar, ver total).','Crea la matriz Requisito ↔ casos y marca cuáles quedan sin cobertura.']}],
-res:[['Google Sheets (plantilla de casos)','https://sheets.google.com','Tu herramienta base'],['Qase (gestor de casos, plan gratuito)','https://qase.io','Practica con una herramienta real; verifica el plan vigente'],['ISTQB','https://www.istqb.org','Técnicas de diseño en el sílabo Foundation'],['Ministry of Testing','https://www.ministryoftesting.com','Artículos sobre técnicas']],
-qs:['El valor límite correcto para edad 18–65 incluye:|17, 18, 65, 66|1, 50, 100|30, 40, 50|0|Se prueba en los bordes.','La partición de equivalencia sirve para:|Reducir casos agrupando entradas equivalentes|Aumentar los bugs|Borrar datos|0|Un representante por clase.','El resultado esperado se compara con:|El resultado real|El título|El ID|0|Su diferencia es el bug.','Un caso negativo prueba:|Entradas inválidas o condiciones de error|Solo el camino feliz|La velocidad|0|Verifica que falle bien.','Contraseña de 8 a 20: valores límite|7, 8, 20, 21|5, 10, 15|1, 2, 3|0|Dos bordes, dentro y fuera.','Una precondición es:|Lo que debe existir antes de ejecutar el caso|El resultado final|Un tipo de bug|0|Ej.: usuario registrado.',
- 'Con 3 condiciones booleanas, la tabla de decisión completa tiene:|8 combinaciones|3 combinaciones|6 combinaciones|0|2 elevado a 3.','La matriz de trazabilidad relaciona:|Requisitos con casos de prueba|Bugs con testers|Sprints con roles|0|Verifica cobertura.','Pedido: ¿probar enviar sin pagar es?|Transición inválida que debe rechazarse|Un caso innecesario|Una prueba de color|0|Se prueban también las transiciones inválidas.','Riesgo se calcula como:|Probabilidad por impacto|Tiempo por costo|Bugs por días|0|Priorizas lo de mayor riesgo.','Un buen caso de prueba es:|Atómico, repetible y con resultado esperado|Largo y ambiguo|Sin pasos|0|Cualquiera lo ejecuta igual.','Error guessing consiste en:|Usar experiencia para probar entradas problemáticas|Adivinar el código|Reducir casos al azar|0|Campos vacíos, textos enormes, caracteres raros.'],
-ent:['Pega en el chat un solo documento con:','1) Tus 12 casos del login (con resultado real y estado).','2) Clases de equivalencia y valores límite de la contraseña.','3) Tabla de decisión de 8 combinaciones y 4 casos derivados.','4) Matriz de trazabilidad de 3 requisitos.','Rúbrica: casos atómicos y repetibles, límites correctos, cobertura de positivos y negativos, y trazabilidad coherente.']});
-Object.assign(QAL[2],{min:'6–8 h',sello:'16i1zbx',
-th:[
-['1 · El reporte de bug perfecto',`Un reporte debe permitir que otra persona reproduzca el problema sin preguntarte nada. Contiene: **título específico** ("Al pagar con tarjeta la app se cierra en Android 14"), **entorno** (SO, navegador, versión, build, ambiente), **precondiciones**, **pasos para reproducir** numerados, **resultado esperado**, **resultado real**, **evidencia** (captura, video, logs/consola), **severidad** y **prioridad**, y **frecuencia** (siempre / intermitente).
-Mal reporte: "No funciona el login". Buen reporte: título claro + 4 pasos + esperado vs real + captura.
-Antes de reportar: verifica que no esté duplicado, repítelo al menos 2 veces y busca la forma más corta de reproducirlo.`],
-['2 · Severidad vs prioridad',`**Severidad:** impacto técnico del defecto (lo define QA). Crítica = bloquea o pierde datos; Alta = función importante rota; Media = tiene alternativa; Baja = cosmético.
-**Prioridad:** urgencia de corregirlo (la define negocio/producto).
-Pueden diferir: el logo de la empresa mal escrito en la portada = severidad baja, prioridad alta; un fallo raro en un reporte que nadie usa = severidad alta, prioridad baja.
-**Triage:** reunión corta donde el equipo revisa los bugs nuevos, decide prioridad, dueño y versión de corrección.`],
-['3 · Ciclo de vida del defecto y Jira',`Estados típicos: **Nuevo → Asignado → En progreso → Resuelto → Verificado → Cerrado**; si la verificación falla pasa a **Reabierto**. También: Rechazado (no es bug), Duplicado, Diferido.
-**Jira** organiza el trabajo: tipos de ticket (**Epic, Story, Task, Bug**), tableros **Scrum** (sprints) o **Kanban** (flujo), campos, etiquetas, componentes, adjuntos y comentarios.
-**JQL** (búsqueda): project = DEMO AND issuetype = Bug AND status != Done ORDER BY priority DESC.
-Tu trabajo en Jira: crear el bug completo, seguirlo, verificar el arreglo en el ambiente correcto y cerrarlo con un comentario de evidencia.`],
-['4 · Comunicar bugs sin conflictos',`Reportas problemas del producto, no culpas a personas. Usa hechos, no adjetivos ("el botón no responde", no "el código es malo").
-Bug **intermitente**: documenta frecuencia, pasos aproximados y logs; intenta aislar la condición (datos, hora, red).
-Si dev responde "funciona en mi máquina": compara entorno, versión y datos; ofrece una sesión de 5 minutos para reproducirlo juntos.
-Ofrece evidencia y propuesta de verificación; cierra el ciclo avisando cuando confirmas la corrección.`]],
-pr:[
-{t:'Taller 1 · Proyecto en Jira (45 min)',steps:['Crea una cuenta gratis y un proyecto Scrum llamado "QA Practica".','Crea 1 épica ("Compra en SauceDemo") y 3 historias dentro.','Mueve las tarjetas por el tablero y crea un sprint de ejemplo.'],links:[['Jira (plan gratuito)','https://www.atlassian.com/software/jira/free']]},
-{t:'Taller 2 · 5 reportes reales (60 min)',steps:['Con problem_user en https://www.saucedemo.com encuentra 5 fallos y redacta cada reporte completo con la plantilla del nivel.','Adjunta evidencia: captura o video corto.','Créalos como Bugs en tu proyecto de Jira con severidad y prioridad justificadas.'],links:[['Sauce Demo','https://www.saucedemo.com'],['Loom (grabar pantalla)','https://www.loom.com'],['ShareX (Windows)','https://getsharex.com']]},
-{t:'Taller 3 · JQL (30 min)',steps:['Escribe 5 filtros JQL: bugs abiertos, bugs críticos, asignados a ti, creados esta semana, sin asignar.','Guarda dos como filtros favoritos.']}],
-res:[['Jira','https://www.atlassian.com/software/jira/free','Gestor de bugs de la industria'],['Atlassian University','https://university.atlassian.com','Cursos gratuitos de Jira'],['Loom','https://www.loom.com','Videos de evidencia'],['ShareX','https://getsharex.com','Capturas y GIF en Windows']],
-qs:['El elemento imprescindible de un reporte es:|Pasos para reproducir|Una opinión|El nombre del dev|0|Sin pasos nadie lo arregla.','La severidad la define normalmente:|QA según el impacto técnico|El cliente|El diseñador|0|La prioridad la define negocio.','La app pierde los datos del pedido. Severidad:|Crítica|Baja|No es bug|0|Pérdida de datos.','Prioridad indica:|Urgencia de corregir|Qué tan feo es|Quién lo halló|0|Decisión de negocio.','Mejor título:|Al pagar con tarjeta la app se cierra (Android 14)|Falla|No sirve|0|Específico y reproducible.','Estado tras fallar la verificación del arreglo:|Reabierto|Cerrado|Nuevo|0|Vuelve al desarrollador.',
- 'Un bug que ocurre a veces es:|Intermitente: documenta frecuencia y logs|Imposible de reportar|Siempre cerrado|0|Aisla la condición.','En Jira, tipo de ticket para un defecto:|Bug|Epic|Sprint|0|Epic agrupa historias.','Un error de ortografía en el logo de portada:|Severidad baja, prioridad posiblemente alta|Siempre crítico|Ignorar|0|Severidad y prioridad difieren.','JQL sirve para:|Buscar y filtrar tickets|Programar la app|Diseñar|0|Jira Query Language.','Si dev dice "funciona en mi máquina":|Comparar entorno y versión y reproducir juntos|Discutir|Cerrar el bug|0|Colaboración con hechos.','El triage es:|Reunión para priorizar y asignar bugs|Un tipo de prueba|Una herramienta|0|Define dueño y versión.'],
-ent:['Pega en el chat:','1) Enlace o texto de tus 5 reportes de bug completos (con evidencia).','2) Captura o descripción de tu tablero Jira con épica e historias.','3) Tus 5 consultas JQL.','4) Explica con tus palabras un caso donde severidad y prioridad no coinciden.','Rúbrica: reproducibilidad, esperado vs real, evidencia, severidad/prioridad justificadas y tono profesional.']});
-Object.assign(QAL[3],{min:'6–8 h',sello:'1inf00c',
-th:[
-['1 · DevTools: tu laboratorio',`Abre con **F12**. Pestañas clave: **Elements** (HTML/CSS en vivo), **Console** (errores JavaScript en rojo), **Network** (cada petición: URL, método, código, tiempo, respuesta), **Application** (cookies, almacenamiento) y **Lighthouse** (auditoría).
-QA lo usa para: ver el error real detrás de un fallo, comprobar que una petición devolvió 200 o 500, simular conexión lenta (throttling) y modo móvil (Ctrl+Shift+M).
-Un bug con captura de la consola o del Network es mucho más valioso para el dev.`],
-['2 · Pruebas funcionales de formularios',`Revisa: campos obligatorios, tipos de dato, longitud mínima y máxima, formatos (email, teléfono), mensajes de error claros, comportamiento de botones (doble clic), autoguardado, botón atrás, recargar la página, sesión expirada y caracteres especiales.
-Aplica partición y límites del nivel 2. Verifica que el mensaje explique cómo corregir ("El correo debe contener @") y no solo "Error".`],
-['3 · Compatibilidad, usabilidad y accesibilidad',`**Compatibilidad:** Chrome, Firefox, Edge, Safari; móvil y escritorio; distintas resoluciones (responsive).
-**Usabilidad:** ¿un usuario nuevo completa la tarea sin ayuda? Etiquetas claras, flujos cortos, errores comprensibles.
-**Accesibilidad (WCAG):** contraste suficiente, texto alternativo en imágenes, navegar todo con teclado (Tab/Enter), etiquetas en formularios, no depender solo del color. Herramientas: Lighthouse, axe DevTools, WAVE.`],
-['4 · Seguridad y rendimiento básicos',`Solo en sitios de práctica o con permiso: **seguridad básica** = ¿usa HTTPS?, ¿expira la sesión?, ¿un usuario puede ver datos de otro cambiando el ID en la URL?, ¿se valida la entrada (script o comillas en campos)? Conoce el **OWASP Top 10** (inyección, autenticación rota, XSS…).
-**Rendimiento básico:** tiempo de carga (Network/Lighthouse), tamaño de imágenes, comportamiento con conexión lenta. La carga masiva se hace con herramientas especializadas (JMeter, k6).`]],
-pr:[
-{t:'Taller 1 · Network y Console (30 min)',steps:['Abre https://www.saucedemo.com con F12 > Network, inicia sesión y localiza las peticiones. Anota método, URL y código de estado de 3 de ellas.','Con problem_user revisa la pestaña Console: ¿hay errores? Captura.'],links:[['Sauce Demo','https://www.saucedemo.com']]},
-{t:'Taller 2 · Responsive y compatibilidad (30 min)',steps:['En una web de práctica prueba el modo dispositivo con 3 tamaños (móvil, tablet, escritorio) y anota 3 problemas de diseño.','Ábrela en dos navegadores distintos y compara.']},
-{t:'Taller 3 · Lighthouse y accesibilidad (40 min)',steps:['Ejecuta Lighthouse (pestaña en DevTools) sobre una web y anota las 4 puntuaciones.','Instala la extensión axe DevTools o usa WAVE y lista 3 problemas de accesibilidad.','Recorre un formulario usando solo el teclado.'],links:[['axe DevTools','https://www.deque.com/axe/devtools/'],['WAVE','https://wave.webaim.org']]},
-{t:'Taller 4 · Sesión exploratoria con informe (60 min)',steps:['Elige https://the-internet.herokuapp.com y define una carta de pruebas.','Explora 45 minutos y escribe un informe: qué probaste, qué encontraste, riesgos pendientes.'],links:[['The Internet','https://the-internet.herokuapp.com']]}],
-res:[['Chrome DevTools','https://developer.chrome.com/docs/devtools','Documentación oficial'],['axe DevTools','https://www.deque.com/axe/devtools/','Accesibilidad'],['WAVE','https://wave.webaim.org','Accesibilidad web'],['OWASP Top 10','https://owasp.org/www-project-top-ten/','Riesgos de seguridad web'],['BrowserStack','https://www.browserstack.com','Pruebas en muchos dispositivos (prueba limitada)']],
-qs:['La pestaña que muestra las peticiones y sus códigos es:|Network|Elements|Sources|0|Ahí ves status y tiempos.','Los errores JavaScript se ven en:|Console|Network|Application|0|En rojo.','El modo dispositivo sirve para:|Simular pantallas móviles|Borrar cookies|Compilar|0|Ctrl+Shift+M.','Un buen mensaje de error:|Explica cómo corregir|Dice solo Error|Está vacío|0|Usabilidad.','WCAG se relaciona con:|Accesibilidad|Rendimiento|Bases de datos|0|Guías de accesibilidad web.','Probar con solo teclado verifica:|Accesibilidad|Seguridad de red|Carga|0|Tab/Enter.',
- 'Cambiar el ID en la URL y ver datos de otro usuario indica:|Falla de control de acceso|Todo normal|Un bug visual|0|Riesgo de seguridad.','Una herramienta de auditoría integrada en Chrome:|Lighthouse|Postman|Jira|0|Mide rendimiento y accesibilidad.','Compatibilidad significa:|Funcionar en distintos navegadores y dispositivos|Funcionar sin internet|Usar mucho color|0|Cross-browser.','OWASP Top 10 es:|Lista de los riesgos de seguridad web más críticos|Un navegador|Un framework de pruebas|0|Referencia de seguridad.','Probar seguridad solo debe hacerse:|Con permiso o en sitios de práctica|En cualquier web|En redes ajenas|0|Es un límite ético y legal.','Un error 500 en Network indica:|Fallo del servidor|Éxito|Página no encontrada|0|500 = error interno.'],
-ent:['Pega en el chat:','1) Las 3 peticiones del taller 1 (método, URL, código) y tus capturas de Console.','2) Los 3 problemas de diseño del responsive.','3) Puntuaciones de Lighthouse y 3 hallazgos de accesibilidad.','4) El informe de tu sesión exploratoria.','Rúbrica: uso correcto de DevTools, evidencias, hallazgos accionables y claridad del informe.']});
-Object.assign(QAL[4],{min:'8–10 h',sello:'1pjy0fv',
-th:[
-['1 · Bases de datos relacionales',`Una base de datos relacional guarda información en **tablas** (como hojas de cálculo): **filas** (registros) y **columnas** (campos). Cada tabla tiene una **clave primaria** (id único) y puede relacionarse con otra mediante una **clave foránea**: pedidos.cliente_id apunta a clientes.id.
-QA usa SQL para comprobar que lo que hizo la app quedó bien guardado: ¿el pedido se registró?, ¿el total coincide?, ¿no hay duplicados?`],
-['2 · Consultar: SELECT',`Forma básica: SELECT columnas FROM tabla WHERE condición ORDER BY columna LIMIT n;
-Ejemplos: SELECT * FROM clientes WHERE ciudad = 'Bogotá'; · SELECT nombre, total FROM pedidos WHERE total BETWEEN 50 AND 200 ORDER BY total DESC;
-Operadores: =, <>, >, <, AND, OR, NOT, IN (1,2,3), LIKE '%gmail.com', IS NULL, BETWEEN. Los textos van entre comillas simples.`],
-['3 · JOIN y agrupaciones',`**INNER JOIN:** solo filas con pareja en ambas tablas. SELECT c.nombre, p.total FROM clientes c INNER JOIN pedidos p ON p.cliente_id = c.id;
-**LEFT JOIN:** todas las de la izquierda aunque no tengan pareja (sirve para hallar clientes sin pedidos: WHERE p.id IS NULL).
-**Agrupar:** SELECT cliente_id, COUNT(*), SUM(total) FROM pedidos GROUP BY cliente_id HAVING SUM(total) > 100; Funciones: COUNT, SUM, AVG, MIN, MAX. WHERE filtra filas antes de agrupar; HAVING filtra grupos.`],
-['4 · SQL aplicado a pruebas',`Validaciones típicas: **duplicados** (GROUP BY email HAVING COUNT(*) > 1), **nulos** inesperados (IS NULL), **integridad** (pedidos huérfanos con LEFT JOIN), totales que cuadran, fechas coherentes.
-INSERT, UPDATE y DELETE modifican datos: **sin WHERE modifican toda la tabla**. Úsalos solo en entornos de prueba y con WHERE; nunca en producción.`]],
-pr:[
-{t:'Taller 1 · Tu base de práctica (40 min)',steps:['Instala DB Browser for SQLite (o usa un editor SQL online).','Crea las tablas clientes(id, nombre, email, ciudad) y pedidos(id, cliente_id, total, fecha) e inserta 8 clientes y 15 pedidos inventados, incluyendo un cliente sin pedidos y un email repetido.'],links:[['DB Browser for SQLite','https://sqlitebrowser.org'],['SQLite Online','https://sqliteonline.com']]},
-{t:'Taller 2 · 15 consultas (60 min)',steps:['Escribe y ejecuta 15 consultas: filtros, orden, LIKE, IN, BETWEEN, COUNT, SUM, GROUP BY, HAVING, INNER y LEFT JOIN.','Guarda todas en un archivo consultas.sql con un comentario que explique cada una.']},
-{t:'Taller 3 · Validar como QA (45 min)',steps:['Escribe consultas que detecten: email duplicado, pedidos con total negativo o nulo, clientes sin pedidos.','Describe qué bug de la app indicaría cada hallazgo.']},
-{t:'Taller 4 · Práctica externa (60 min)',steps:['Completa las lecciones iniciales de SQLBolt.','Resuelve 5 ejercicios SQL de nivel fácil en HackerRank.'],links:[['SQLBolt','https://sqlbolt.com'],['HackerRank SQL','https://www.hackerrank.com/domains/sql']]}],
-res:[['DB Browser for SQLite','https://sqlitebrowser.org','Base local gratuita'],['SQLBolt','https://sqlbolt.com','Lecciones interactivas'],['HackerRank SQL','https://www.hackerrank.com/domains/sql','Ejercicios y certificado básico'],['DBeaver','https://dbeaver.io','Cliente para bases reales']],
-qs:['¿Consulta para clientes de Bogotá?|SELECT * FROM clientes WHERE ciudad = \'Bogotá\'|DELETE clientes|UPDATE ciudad|0|SELECT con WHERE.','Una clave primaria:|Identifica de forma única cada fila|Es un texto largo|Se repite|0|Ej.: id.','INNER JOIN devuelve:|Solo filas con pareja en ambas tablas|Todas las filas|Ninguna|0|Intersección.','Para clientes sin pedidos usas:|LEFT JOIN con IS NULL|INNER JOIN|ORDER BY|0|Detecta huérfanos.','COUNT(*) sirve para:|Contar filas|Sumar valores|Ordenar|0|Función de agregación.','LIKE \'%gmail.com\' busca:|Textos que terminan en gmail.com|Textos exactos|Números|0|% es comodín.',
- 'WHERE filtra:|Filas antes de agrupar|Grupos|Tablas|0|HAVING filtra grupos.','Duplicados de email se detectan con:|GROUP BY email HAVING COUNT(*) > 1|SELECT 1|ORDER BY|0|Agrupas y cuentas.','UPDATE sin WHERE:|Modifica toda la tabla|No hace nada|Da error siempre|0|Peligroso.','SUM(total) devuelve:|La suma de los totales|El mayor|El promedio|0|Agregación.','Clave foránea:|Apunta a la clave primaria de otra tabla|Es la contraseña|Se borra sola|0|Relaciona tablas.','¿Dónde ejecutas DELETE de prueba?|En un entorno de pruebas con WHERE|En producción|En cualquier lado|0|Nunca en producción.'],
-ent:['Pega en el chat:','1) Tu script de creación de tablas y datos.','2) Tu archivo consultas.sql con las 15 consultas comentadas.','3) Las consultas de validación y el bug que insinúa cada una.','4) Captura de tus ejercicios en SQLBolt o HackerRank.','Rúbrica: sintaxis correcta, JOIN y agrupaciones bien usados, validaciones útiles y explicación de cada hallazgo.']});
-Object.assign(QAL[5],{min:'8–10 h',sello:'olc6wh',
-th:[
-['1 · Cómo funciona una API',`Una **API** permite que dos programas se comuniquen. El cliente envía una **petición (request)**: URL + método + encabezados (headers) + cuerpo (body); el servidor devuelve una **respuesta (response)**: código de estado + headers + body, normalmente en **JSON** (pares clave-valor como {"id":1,"nombre":"Ana"}).
-Métodos: **GET** leer, **POST** crear, **PUT/PATCH** actualizar, **DELETE** borrar.
-Códigos: 200 OK, 201 Creado, 204 sin contenido, 400 petición inválida, 401 no autenticado, 403 sin permiso, 404 no encontrado, 409 conflicto, 500 error del servidor.`],
-['2 · Postman: tu herramienta',`**Postman** permite enviar peticiones sin programar. Conceptos: **colecciones** (carpetas de peticiones), **entornos y variables** ({{base_url}}), **autenticación** (API key, Bearer token) y **tests** escritos en JavaScript.
-Ejemplo de test: pm.test('Status 200', () => pm.response.to.have.status(200)); pm.test('Tiene id', () => pm.expect(pm.response.json().id).to.exist);`],
-['3 · Qué probar en una API',`Para cada endpoint: **camino feliz** (200/201), **validaciones** (campos faltantes o inválidos → 400), **autenticación** (sin token → 401, token ajeno → 403), **recurso inexistente** (404), **tipos y formato** de los campos de respuesta, **tiempos** de respuesta y **límites** (textos largos, números extremos).
-Verifica también el efecto: un POST debe crear el dato (compruébalo con un GET o con SQL).`],
-['4 · Documentación y contratos',`Las APIs se documentan con **OpenAPI/Swagger**: lista endpoints, parámetros, ejemplos y respuestas. QA lee esa documentación como si fuera el requisito: de ahí salen los casos de prueba.
-Un **contrato** define la forma de la respuesta; si un campo cambia de nombre o tipo, el contrato se rompe y las apps que lo usan fallan.`]],
-pr:[
-{t:'Taller 1 · Primeras peticiones (40 min)',steps:['Instala Postman y crea una colección "API Practica".','Contra https://jsonplaceholder.typicode.com haz GET /posts, GET /posts/1, POST /posts, PUT /posts/1 y DELETE /posts/1. Anota el código de cada una.','Haz GET /posts/9999 y observa el 404.'],links:[['Postman','https://www.postman.com/downloads/'],['JSONPlaceholder','https://jsonplaceholder.typicode.com']]},
-{t:'Taller 2 · Tests automáticos (45 min)',steps:['En cada petición añade pm.test para el código de estado y para un campo de la respuesta.','Ejecuta toda la colección con Runner y captura el resultado.']},
-{t:'Taller 3 · Swagger Petstore (45 min)',steps:['Abre la documentación de Swagger Petstore, lee 3 endpoints y diseña 6 casos de prueba por endpoint (feliz, inválido, inexistente...).','Ejecuta al menos 5 desde Swagger o Postman.'],links:[['Swagger Petstore','https://petstore.swagger.io']]},
-{t:'Taller 4 · Variables y exportar (30 min)',steps:['Crea un entorno con {{base_url}} y úsalo en tus peticiones.','Exporta la colección y el entorno en archivos JSON para tu portafolio.']}],
-res:[['Postman','https://www.postman.com/downloads/','Cliente de APIs'],['Postman Learning Center','https://learning.postman.com','Cursos y certificado API Fundamentals'],['JSONPlaceholder','https://jsonplaceholder.typicode.com','API falsa gratuita'],['Swagger Petstore','https://petstore.swagger.io','Ejemplo de API documentada']],
-qs:['Método para crear un recurso:|POST|GET|DELETE|0|POST crea.','404 significa:|Recurso no encontrado|Éxito|Error del servidor|0|No existe.','401 indica:|No autenticado|Sin contenido|Creado|0|Falta credencial válida.','El formato más común del body es:|JSON|PDF|MP3|0|Clave-valor.','Postman permite:|Enviar peticiones y escribir tests|Editar imágenes|Compilar apps|0|Cliente de API.','GET se usa para:|Leer datos|Borrar|Crear|0|No modifica.',
- '403 se diferencia de 401 en que:|Hay identidad pero sin permiso|No hay conexión|El recurso no existe|0|Autenticado pero no autorizado.','Un test en Postman usa:|JavaScript con pm.test|SQL|HTML|0|pm.test(...).','Probar sin token un endpoint protegido debería dar:|401|200|201|0|Validación de seguridad.','Un POST correcto suele devolver:|201 Creado|404|500|0|Recurso creado.','OpenAPI/Swagger sirve para:|Documentar la API|Pintar interfaces|Guardar datos|0|Fuente de casos de prueba.','Tras un POST, la mejor verificación es:|Consultar con GET o SQL que se creó|Suponer que funcionó|Reiniciar|0|Verificar el efecto.'],
-ent:['Pega en el chat:','1) Tabla con los 5 métodos del taller 1, su código y lo que observaste.','2) Capturas del Runner con los tests ejecutados.','3) Tus 6 casos diseñados para un endpoint de Petstore.','4) Los archivos JSON exportados (o su contenido resumido).','Rúbrica: uso correcto de métodos y códigos, tests significativos, casos negativos y de autenticación.']});
-Object.assign(QAL[6],{min:'10–14 h',sello:'y5kqq4',
-th:[
-['1 · Cuándo y qué automatizar',`Automatizar es escribir código que ejecuta las pruebas por ti. Conviene para lo **repetitivo, estable y crítico** (regresión, humo, APIs). No conviene para lo que cambia a diario o es exploratorio.
-**Pirámide de pruebas:** muchas unitarias (rápidas), algunas de API/integración, pocas de interfaz (lentas y frágiles).
-Herramientas web: **Cypress** (ideal para empezar), **Playwright** y **Selenium** (muy pedido en empleos).`],
-['2 · JavaScript mínimo',`Variables: const nombre = 'Ana'; let n = 3; Función: function sumar(a,b){ return a+b }; flecha: (a,b)=>a+b. Arreglos: const lista=[1,2,3]; lista.forEach(x=>console.log(x)). Objetos: {id:1, nombre:'Ana'}. Condicionales: if (x>3) {…} else {…}. Comparación estricta: ===.
-**Asincronía:** el navegador espera respuestas; Cypress la maneja por ti, pero conviene entender promesas.`],
-['3 · Git y GitHub',`**Git** guarda el historial de tu código. Comandos: git init, git add ., git commit -m "mensaje", git status, git branch, git push. **GitHub** aloja tu repositorio y funciona como portafolio para reclutadores.
-Buenas prácticas: commits pequeños con mensajes claros, un README que explique cómo ejecutar tus pruebas, no subir contraseñas.`],
-['4 · Cypress paso a paso',`Instalación: instalar Node.js, luego en tu carpeta npm init -y, npm install cypress --save-dev y npx cypress open.
-Un test: describe('Login', () => { it('entra con datos válidos', () => { cy.visit('https://www.saucedemo.com'); cy.get('#user-name').type('standard_user'); cy.get('#password').type('secret_sauce'); cy.get('#login-button').click(); cy.url().should('include','inventory') }) }).
-Buenas prácticas: selectores estables (data-test), pruebas independientes entre sí, nada de esperas fijas (cy.wait con milisegundos), datos preparados, **Page Object** para reutilizar pasos.`]],
-pr:[
-{t:'Taller 1 · Entorno (45 min)',steps:['Instala Node.js (versión LTS) y Git; verifica con node -v y git --version.','Crea una cuenta en GitHub y un repositorio "qa-automation".'],links:[['Node.js','https://nodejs.org'],['Git','https://git-scm.com/downloads'],['GitHub','https://github.com']]},
-{t:'Taller 2 · Primer test Cypress (60 min)',steps:['En tu carpeta del proyecto instala Cypress y abre npx cypress open.','Escribe el test de login de Sauce Demo y ejecútalo hasta que pase.'],links:[['Cypress','https://www.cypress.io']]},
-{t:'Taller 3 · 5 tests (90 min)',steps:['Automatiza: login válido, login inválido, agregar producto al carrito, quitar producto, completar compra.','Usa describe/it y verificaciones (should) claras en cada uno.']},
-{t:'Taller 4 · Subir a GitHub (30 min)',steps:['Haz commit y push de tu proyecto con un README (qué prueba, cómo instalar, cómo ejecutar).','Opcional: repite un test con Playwright para comparar.'],links:[['Playwright','https://playwright.dev']]}],
-res:[['Node.js','https://nodejs.org','Entorno de ejecución'],['Cypress','https://www.cypress.io','Automatización web'],['Playwright','https://playwright.dev','Alternativa moderna'],['Git','https://git-scm.com/downloads','Control de versiones'],['Test Automation University','https://testautomationu.applitools.com','Cursos gratuitos de automatización']],
-qs:['Conviene automatizar:|Pruebas repetitivas, estables y críticas|Todo siempre|Solo lo exploratorio|0|Regresión y humo.','En la pirámide de pruebas hay más:|Unitarias|De interfaz|Manuales|0|Rápidas y baratas.','Comando para guardar cambios en Git:|git commit|git cry|git open|0|Con git add antes.','Cypress se instala con:|npm install cypress|pip install|apt cypress|0|Requiere Node.js.','Un selector estable suele ser:|data-test|La posición en la página|El color|0|Evita fragilidad.','cy.get(\'#login-button\').click() hace:|Pulsar el botón|Leer un texto|Borrar la página|0|Selecciona y hace clic.',
- 'Una espera fija cy.wait(5000) es:|Mala práctica; usa esperas por condición|La mejor práctica|Obligatoria|0|Genera lentitud y fallos.','Las pruebas automatizadas deben ser:|Independientes entre sí|Dependientes en cadena|Siempre manuales|0|Si una falla no debe arrastrar a otras.','Page Object sirve para:|Reutilizar y organizar pasos de página|Dibujar páginas|Crear bases de datos|0|Mantenimiento más fácil.','GitHub sirve como:|Portafolio y control de versiones en la nube|Navegador|Antivirus|0|Los reclutadores lo revisan.','Comparación estricta en JavaScript:|===|=|=>|0|Compara valor y tipo.','No deberías subir a GitHub:|Contraseñas o claves|Tu README|Tus tests|0|Seguridad.'],
-ent:['Pega en el chat:','1) El enlace a tu repositorio de GitHub (público).','2) El código de tus 5 tests.','3) Captura de la ejecución pasando.','4) Tu README.','Rúbrica: tests legibles e independientes, selectores estables, verificaciones claras y repositorio ordenado.']});
-Object.assign(QAL[7],{min:'10–14 h',sello:'9tp5wk',
-th:[
-['1 · El plan de pruebas',`Documento que define cómo se probará un producto. Secciones: **alcance** (qué sí y qué no), **estrategia** (tipos de prueba y técnicas), **criterios de entrada y salida** (cuándo empezar y cuándo terminar), **entornos y datos**, **roles y cronograma**, **riesgos** y **entregables** (casos, reportes, informe final).
-Se basa en el riesgo: más profundidad donde el fallo cuesta más.`],
-['2 · Métricas e informes',`Métricas útiles: **% de casos ejecutados**, **% aprobados**, **defectos por severidad**, **densidad de defectos**, **defectos escapados a producción**, **cobertura de requisitos**, **tiempo de ciclo de corrección**.
-El **informe de pruebas** resume: qué se probó, resultados, bugs abiertos, riesgos y una recomendación clara (liberar / liberar con riesgos / no liberar). Cuida que las métricas guíen decisiones y no se usen para culpar.`],
-['3 · Certificación y portafolio',`**ISTQB Foundation (CTFL)** es la certificación más reconocida para empezar; estudia su sílabo gratuito (el examen es de pago).
-**Portafolio en GitHub:** carpetas con casos de prueba, reportes de bug, consultas SQL, colección y entorno de Postman, proyecto Cypress y un plan de pruebas. Un README que explique cada parte.
-**CV y LinkedIn:** resumen claro, habilidades (testing manual, Jira, SQL, Postman, Cypress, Git), proyectos con enlace y resultados, inglés.`],
-['4 · Entrevistas técnicas',`Preguntas frecuentes: diferencia QA/QC/testing, tipos de prueba, severidad vs prioridad, ciclo del bug, cómo diseñar casos para un login, SQL (JOIN, GROUP BY), códigos HTTP, qué automatizarías y por qué.
-Prepara historias con el método **STAR** (Situación, Tarea, Acción, Resultado). Practica explicar tu portafolio en 2 minutos. Aprende vocabulario en inglés: test case, bug report, steps to reproduce, expected/actual result, regression, smoke test.`]],
-pr:[
-{t:'Taller 1 · Plan de pruebas (90 min)',steps:['Escribe un plan de pruebas para la tienda de https://www.saucedemo.com con todas las secciones del plan.','Incluye al menos 5 riesgos y cómo los mitigarías.'],links:[['Sauce Demo','https://www.saucedemo.com']]},
-{t:'Taller 2 · Informe final (60 min)',steps:['Ejecuta los casos que hiciste en el nivel 2 y arma un informe con métricas, bugs y recomendación.']},
-{t:'Taller 3 · Portafolio (120 min)',steps:['Reúne en tu repositorio de GitHub todo lo producido: casos, bugs, SQL, Postman y Cypress, con README.','Actualiza tu CV y tu perfil de LinkedIn con proyectos y enlaces.']},
-{t:'Taller 4 · Simulacro de entrevista (60 min)',steps:['Responde por escrito 10 preguntas típicas de entrevista QA.','Pídeme en el chat un simulacro y te entrevisto.']}],
-res:[['ISTQB Foundation','https://www.istqb.org','Sílabo y glosario'],['LinkedIn','https://www.linkedin.com','Perfil profesional'],['GitHub','https://github.com','Portafolio'],['Test Automation University','https://testautomationu.applitools.com','Seguir aprendiendo'],['Ministry of Testing','https://www.ministryoftesting.com','Comunidad y empleo']],
-qs:['El criterio de salida define:|Cuándo se puede dar por terminadas las pruebas|Cuándo empezar a programar|El color de la app|0|Evita probar sin fin.','Densidad de defectos es:|Defectos por tamaño del producto|Cantidad de testers|Tiempo de carga|0|Defectos / tamaño.','Un defecto escapado es:|Uno que llegó a producción sin detectarse|Uno corregido|Uno rechazado|0|Mide eficacia de las pruebas.','El informe final debe incluir:|Resultados, riesgos y recomendación|Solo capturas|Solo chistes|0|Apoya la decisión de liberar.','La certificación más reconocida para empezar es:|ISTQB Foundation|Un curso de cocina|Ninguna sirve|0|CTFL.','El método STAR sirve para:|Estructurar respuestas de entrevista|Escribir SQL|Medir rendimiento|0|Situación, Tarea, Acción, Resultado.',
- 'El plan de pruebas se basa en:|El riesgo|La suerte|El color|0|Más prueba donde más duele fallar.','Un buen portafolio de QA tiene:|Casos, bugs, SQL, API y automatización con README|Solo el CV|Solo capturas|0|Evidencia de habilidades.','"Steps to reproduce" significa:|Pasos para reproducir|Resultado esperado|Entorno|0|Vocabulario de reportes.','"Regression testing" es:|Pruebas de regresión|Pruebas de carga|Pruebas de color|0|Verifican que lo anterior sigue funcionando.','Un resultado de métricas debe usarse para:|Tomar decisiones|Culpar personas|Esconder bugs|0|Orientación, no castigo.','Liberar con riesgos significa:|Publicar informando los riesgos pendientes|Ignorarlos|Cancelar todo|0|Decisión consciente.'],
-ent:['Pega en el chat el proyecto final:','1) Tu plan de pruebas y tu informe final.','2) El enlace a tu portafolio de GitHub con README.','3) Tu CV (resumen y habilidades) y el enlace a LinkedIn.','4) Tus respuestas a las 10 preguntas de entrevista; después hacemos un simulacro.','Rúbrica: coherencia del plan, informe con recomendación, portafolio navegable y respuestas claras con ejemplos propios.']});
-QAL.forEach(l=>{if(l.qs)l.qs=l.qs.map(mq)});
+const QAL=[{t:'Hito 1 · Fundamentos de QA',sk:'Fundamentos de QA'},{t:'Hito 2 · Diseño de casos',sk:'Diseño de casos'},{t:'Hito 3 · Reporte de bugs & Jira',sk:'Reporte de bugs & Jira'},{t:'Hito 4 · Pruebas web',sk:'Pruebas web'},{t:'Hito 5 · SQL',sk:'SQL'},{t:'Hito 6 · APIs & Postman',sk:'APIs & Postman'},{t:'Hito 7 · Automatización',sk:'Automatización'},{t:'Hito 8 · QA listo para trabajar',sk:'QA listo para trabajar'}];
 const TOW={
 qa:{n:'Escuela QA',em:'<i class="ic ic-flask"></i>',c:'#8a4fd0',fl:QAL}
 };
@@ -2285,7 +2085,7 @@ function vLI(){const t=liTexts(),pct=Math.round(liPct()*100),nm=A.liName||'Tu no
  return h}
 
 const fk=(t,i)=>t+i;
-const passedF=(t,i)=>!!A.ex[fk(t,i)]&&(t!=='qa'||!!A.sl[fk(t,i)]);
+const passedF=(t,i)=>t==='qa'?i<qaProg():!!A.ex[fk(t,i)];
 const unlocked=(t,i)=>i===0||passedF(t,i-1);
 const towerDone=t=>TOW[t].fl.filter((_,i)=>passedF(t,i)).length;
 const stepOk=(t,i)=>{const f=TOW[t].fl[i],k=fk(t,i);return{th:(A.rd[k]||[]).length>=f.th.length,pr:(A.pr[k]||[]).length>=f.pr.length,qz:(A.qz[k]||0)>=.66}};
@@ -2296,7 +2096,7 @@ const gymLvl=()=>Math.min(10,1+Math.floor(gymXP()/24));
 const GTIT=['','Arrancando','Constante','En movimiento','Tomando forma','Más ligero','Definiendo','Atlético','Fuerte','Imparable','Leyenda'];
 const V={tab:'avatar',i:null,run:null};
 const pf=document.createElement('aside');pf.id='pf';document.body.appendChild(pf);
-const TABS=[['avatar','<i class="ic ic-user"></i> Avatar'],['qa','<i class="ic ic-flask"></i> Escuela QA'],['it','<i class="ic ic-monitor"></i> Centro IT'],['en','<i class="ic ic-globe"></i> Inglés'],['gym','<i class="ic ic-dumbbell"></i> Gym'],['git','<i class="ic ic-save"></i> Git y GitHub'],['li','<i class="ic ic-network"></i> LinkedIn'],['lib','<i class="ic ic-book"></i> Biblioteca'],['job','<i class="ic ic-briefcase"></i> Empleo']];
+const TABS=[['avatar','<i class="ic ic-user"></i> Avatar'],['work','<i class="ic ic-briefcase"></i> Empresa QA · 15 proyectos'],['it','<i class="ic ic-monitor"></i> Centro IT'],['en','<i class="ic ic-globe"></i> Inglés'],['gym','<i class="ic ic-dumbbell"></i> Gym'],['git','<i class="ic ic-save"></i> Git y GitHub'],['li','<i class="ic ic-network"></i> LinkedIn'],['lib','<i class="ic ic-book"></i> Biblioteca'],['job','<i class="ic ic-briefcase"></i> Empleo']];
 function gymSVG(l){const f=1-(l-1)/9,bx=24+32*f,m=l>=7?5:0;
  return `<svg viewBox="0 0 160 190" width="150" role="img" aria-label="Avatar gym nivel ${l}"><ellipse cx="80" cy="184" rx="${bx+16}" ry="6" fill="#0002"/><rect x="${80-bx*.5-6}" y="128" width="16" height="50" rx="8" fill="#3b4a6b"/><rect x="${80+bx*.5-10}" y="128" width="16" height="50" rx="8" fill="#3b4a6b"/><ellipse cx="${80-bx-3}" cy="102" rx="${9+5*f+m}" ry="27" fill="#f1c6a0"/><ellipse cx="${80+bx+3}" cy="102" rx="${9+5*f+m}" ry="27" fill="#f1c6a0"/><ellipse cx="80" cy="100" rx="${bx}" ry="44" fill="#d8372f"/>${f>.25?`<ellipse cx="80" cy="116" rx="${bx*.82}" ry="${10+22*f}" fill="#e5463f"/>`:''}<circle cx="80" cy="52" r="${20+4*f}" fill="#f1c6a0"/><circle cx="73" cy="49" r="2.4" fill="#2b2a28"/><circle cx="87" cy="49" r="2.4" fill="#2b2a28"/><path d="M72 ${60+f*2} Q80 ${66+f*3} 88 ${60+f*2}" stroke="#2b2a28" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M${60-4*f} 38 Q80 22 ${100+4*f} 38 L${100+4*f} 41 L${60-4*f} 41Z" fill="#2b2a28"/>${l>=4?'<rect x="58" y="38" width="44" height="6" fill="#fff"/>':''}${l>=10?'<path d="M62 24 L68 12 L80 22 L92 12 L98 24Z" fill="#e0a93b"/>':''}</svg>`}
 function vAvatar(){const L=lvl(),rc=['#cfc8b8','#8fb4e8','#6ac17b','#e0a93b','#d8372f'][Math.min(4,Math.ceil(L/2))];
@@ -2331,7 +2131,7 @@ function vJob(){return `<div class="tower"><div class="roof" style="background:#
 function vLockedT(){return `<div class="tower"><div class="roof" style="background:#6b6b66"><i class="ic ic-hardhat"></i> ${TOW[V.tab].n} · en construcción</div><div class="lobby">Se construye después de terminar la Escuela QA</div></div><p class="intro">Este edificio está bloqueado. El contenido anterior fue reemplazado: cuando le toque, lo reconstruimos con lecciones, talleres y evaluación reales como los del nivel 1 de QA.</p>`}
 function vQL(){const t=V.tab,i=V.i,f=TOW[t].fl[i],k=fk(t,i),s=stepOk(t,i),ps=passedF(t,i),rd=A.rd[k]||[],pr=A.pr[k]||[],ready=s.th&&s.pr,ex=!!A.ex[k];
  const L=x=>fmt(x).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/\*(.+?)\*/g,'<i>$1</i>');
- let h=`<button class="btn ghost" data-act="back">← Volver al edificio</button><h3>${esc(f.t)}</h3><p class="intro"><b>Meta:</b> ${esc(f.g)}<br><b>Tiempo estimado:</b> ${f.min}</p><div class="chips"><span class="pill ${s.th?'hot':''}"><i class="ic ic-book"></i> Lecciones ${rd.length}/${f.th.length}</span><span class="pill ${s.pr?'hot':''}"><i class="ic ic-wrench"></i> Talleres ${pr.length}/${f.pr.length}</span><span class="pill ${s.qz?'hot':''}"><i class="ic ic-clipboard"></i> Quiz ${s.qz?'aprobado':'pendiente'}</span><span class="pill ${ex?'hot':''}"><i class="ic ic-cap"></i> Examen ${ex?'aprobado':'pendiente'}</span></div><h4><i class="ic ic-book"></i> Lecciones</h4>`;
+ let h=`<button class="btn ghost" data-act="back">${V.ret?'← Volver al proyecto en la Empresa QA':'← Volver al edificio'}</button><h3>${esc(f.t)}</h3><p class="intro"><b>Meta:</b> ${esc(f.g)}<br><b>Tiempo estimado:</b> ${f.min}</p><div class="chips"><span class="pill ${s.th?'hot':''}"><i class="ic ic-book"></i> Lecciones ${rd.length}/${f.th.length}</span><span class="pill ${s.pr?'hot':''}"><i class="ic ic-wrench"></i> Talleres ${pr.length}/${f.pr.length}</span><span class="pill ${s.qz?'hot':''}"><i class="ic ic-clipboard"></i> Quiz ${s.qz?'aprobado':'pendiente'}</span><span class="pill ${ex?'hot':''}"><i class="ic ic-cap"></i> Examen ${ex?'aprobado':'pendiente'}</span></div><h4><i class="ic ic-book"></i> Lecciones</h4>`;
  h+=f.th.map((x,n)=>`<details class="card"><summary><b>${esc(x[0])}</b>${rd.includes(n)?' <i class="ic ic-check"></i>':''}</summary><div class="det lsn">${L(x[1])}</div>${chkRow('rd',n,rd.includes(n),'Ya la estudié')}</details>`).join('');
  h+='<h4><i class="ic ic-wrench"></i> Talleres prácticos</h4>'+f.pr.map((x,n)=>`<details class="card"><summary><b>${esc(x.t)}</b>${pr.includes(n)?' <i class="ic ic-check"></i>':''}</summary><ol class="steps">${x.steps.map(z=>`<li>${L(z)}</li>`).join('')}</ol>${(x.links||[]).map(l=>`<a class="btn ghost" style="display:inline-block;margin:4px 6px 4px 0;text-decoration:none" href="${l[1]}" target="_blank" rel="noopener"><i class="ic ic-link"></i> ${esc(l[0])}</a>`).join('')}${chkRow('pr',n,pr.includes(n),'Taller completado')}</details>`).join('');
  h+='<h4><i class="ic ic-download"></i> Programas y recursos</h4><div class="card"><ul>'+f.res.map(r=>`<li>${r[1]==='#'?`<button class="btn ghost" style="padding:3px 9px" data-act="tab" data-tab="lib"><b>${esc(r[0])}</b></button>`:`<a href="${r[1]}" target="_blank" rel="noopener"><b>${esc(r[0])}</b></a>`} <small style="color:var(--mute)">· ${esc(r[2])}</small></li>`).join('')+'</ul></div>';
@@ -2342,16 +2142,16 @@ function vQL(){const t=V.tab,i=V.i,f=TOW[t].fl[i],k=fk(t,i),s=stepOk(t,i),ps=pas
  if(ps)h+=`<div class="exp" style="margin-top:12px"><i class="ic ic-check"></i> Nivel superado · habilidad: <b>${esc(f.sk)}</b>. El edificio sube un piso y se abre el siguiente nivel.</div>`;
  return h}
 function pfRender(){const sc=pf.querySelector('.pbody'),st=sc?sc.scrollTop:0,op=[...pf.querySelectorAll('details')].map(x=>x.open);
- const body=V.run?vRun():V.tab==='avatar'?vAvatar():V.tab==='lib'?vLib():V.tab==='li'?vLI():V.tab==='job'?vJob():V.i!=null?vQL():V.tab==='gym'?vGym()+'<h4><i class="ic ic-book"></i> Academia Gym · niveles</h4>'+vTower('gym'):vTower();
+ const body=V.run?vRun():V.tab==='work'?vWork():V.tab==='avatar'?vAvatar():V.tab==='lib'?vLib():V.tab==='li'?vLI():V.tab==='job'?vJob():V.i!=null?vQL():V.tab==='gym'?vGym()+'<h4><i class="ic ic-book"></i> Academia Gym · niveles</h4>'+vTower('gym'):vTower();
  pf.innerHTML=`<div class="ph"><span class="em"><i class="ic ic-user"></i></span><div><h2>MI PERFIL</h2><p>${TITLES[lvl()]}</p></div><button class="x" data-act="close" aria-label="Cerrar"><i class="ic ic-x"></i></button></div><div class="tabs">${TABS.map(t=>`<button class="${V.tab===t[0]?'on':''}" data-act="tab" data-tab="${t[0]}">${t[1]}</button>`).join('')}</div><div class="pbody">${body}</div>`;
  const nb=pf.querySelector('.pbody');if(nb)nb.scrollTop=st;pf.querySelectorAll('details').forEach((x,i)=>{if(op[i])x.open=true})}
 function finishRun(){const r=V.run,p=r.sc/r.qs.length;if(r.kind==='quiz')A.qz[r.k]=Math.max(A.qz[r.k]||0,p);else if(p>=.8)A.ex[r.k]=1;asave()}
 function shufQ(qs){const a=qs.map(q=>{const ord=[0,1,2];for(let i=2;i>0;i--){const j=Math.floor(Math.random()*(i+1));[ord[i],ord[j]]=[ord[j],ord[i]]}return{q:q.q,e:q.e,o:ord.map(i=>q.o[i]),a:ord.indexOf(q.a)}});for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 pf.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(!b||b.tagName==='INPUT'||b.disabled)return;const a=b.dataset.act,d=b.dataset;
  if(a==='close')pf.classList.remove('open');
- else if(a==='tab'){V.tab=d.tab;V.i=null;V.run=null;pfRender()}
+ else if(a==='tab'){V.tab=d.tab;V.i=null;V.run=null;V.ret=null;pfRender()}
  else if(a==='floor'){V.i=+d.i;pfRender()}
- else if(a==='back'){V.i=null;pfRender()}
+ else if(a==='back'){V.i=null;V.run=null;if(V.ret){WKV.t=V.ret;V.ret=null;V.tab='work'}pfRender()}
  else if(a==='autopass'){const f=TOW[V.tab].fl[V.i],k=fk(V.tab,V.i);A.rd[k]=f.th.map((_,n)=>n);A.pr[k]=f.pr.map((_,n)=>n);A.qz[k]=1;A.ex[k]=1;A.sl[k]=1;asave();pfRender();toast('<i class="ic ic-flask"></i> Nivel aprobado en modo prueba')}
  else if(a==='dl'){const f=FILES[+d.n],bl=new Blob([f.t],{type:f.m+';charset=utf-8'}),u=URL.createObjectURL(bl),l=document.createElement('a');l.href=u;l.download=f.f;document.body.appendChild(l);l.click();l.remove();setTimeout(()=>URL.revokeObjectURL(u),2000)}
  else if(a==='dictsearch'){const raw=(pf.querySelector('#dictword')?.value||'').trim().toLowerCase();const d=DICT[raw];const out=pf.querySelector('#dictresult');if(out)out.innerHTML=d?`<b>${esc(raw)}</b> · ${esc(d[0])}<p><b>English:</b> ${esc(d[1])}</p><p><b>Español:</b> ${esc(d[2])}</p>`:`No hay una entrada local exacta para “${esc(raw)}”. Prueba una forma singular o una palabra común. Para traducciones complejas, verifica el significado según el contexto.`}
@@ -2666,12 +2466,12 @@ const QA_CFG={
   {id:'nova',name:'Nova',agent:'fundamentals',skin:'#dca27d',hair:'#26283a',hs:'long',shirt:'#19a69d',pants:'#344d61',acc:''},
   {id:'byte',name:'Byte',agent:'cases',skin:'#c98d67',hair:'#6b3b22',hs:'short',shirt:'#e5a94e',pants:'#3a3f66',acc:'glasses'},
   {id:'patch',name:'Patch',agent:'bugs',skin:'#f0c29c',hair:'#16161e',hs:'short',shirt:'#6c83cb',pants:'#2f3a52',acc:'headset'},
-  {id:'e1',skin:'#8d5a3c',hair:'#14141c',hs:'pony',shirt:'#d9608a',pants:'#3d3f5c',acc:''},
+  {id:'marta',name:'Marta',agent:'marta',skin:'#8d5a3c',hair:'#14141c',hs:'pony',shirt:'#d9608a',pants:'#3d3f5c',acc:''},
   {id:'e2',skin:'#e8b894',hair:'#a2562a',hs:'bun',shirt:'#f0efe8',pants:'#4a4f6e',acc:''},
-  {id:'e3',skin:'#c68b64',hair:'#2a1c18',hs:'short',shirt:'#3d7fd0',pants:'#2f3a52',acc:'headset'},
+  {id:'diego',name:'Diego',agent:'diego',skin:'#c68b64',hair:'#2a1c18',hs:'short',shirt:'#3d7fd0',pants:'#2f3a52',acc:'headset'},
   {id:'e4',skin:'#f2cba6',hair:'#c9a04a',hs:'long',shirt:'#8a5ad8',pants:'#3a3f66',acc:''},
   {id:'e5',skin:'#7a4a30',hair:'#0f0f14',hs:'curly',shirt:'#e56a3a',pants:'#33405c',acc:'glasses'},
-  {id:'e6',skin:'#dca27d',hair:'#4a2a1e',hs:'short',shirt:'#4a9c64',pants:'#2f3a52',acc:''},
+  {id:'andres',name:'Andrés',agent:'andres',skin:'#c98d67',hair:'#1c1c28',hs:'short',shirt:'#4a9c64',pants:'#2f3a52',acc:''},
   {id:'e7',skin:'#e0a98a',hair:'#1c1c28',hs:'pony',shirt:'#5a6cb8',pants:'#4a4f6e',acc:''}],
  start:[0,10,12,1,2,6,7,5,8,13],
  glows:[[1.35,5.4,30,'#ff9a3a',38,.38]],
@@ -2869,15 +2669,15 @@ const qaScene=officeScenes.qa;
 
 const GIT_ICON='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"><circle cx="7" cy="5" r="2.2"/><circle cx="7" cy="19" r="2.2"/><circle cx="17" cy="9" r="2.2"/><path d="M7 7.2v9.6M17 11.2c0 4-5 3-9.2 6"/></svg>';
 const OFFICES={
-qa:{cls:'qa',mark:'✓',markBg:'',brand:'QUALITY LAB · PISO 01',aria:'Interior de la oficina QA',eyebrow:'TU PRIMER DÍA EN QA',h1:'Bienvenido al <span>Quality Lab.</span>'.replace(/<[^>]+>/g,''),sub:'Un equipo realista, un espacio de trabajo y tu camino para convertirte en QA Tester.',live:'Oficina activa · Equipo trabajando',
+qa:{cls:'qa',mark:'✓',markBg:'',brand:'QUALITY LAB · PISO 01',aria:'Interior de la oficina QA',eyebrow:'TU PRIMERA EMPRESA',h1:'Bienvenido a ZOWL QA Labs.',sub:'Entras como novato y aprendes todo trabajando: teoría, programas, prácticas y empleo real, proyecto por proyecto.',live:'Oficina activa · Equipo trabajando',
  roomAria:'Oficina QA isométrica pixel art con agentes interactivos',canvasAria:'Oficina isométrica pixel art con equipo QA trabajando: los personajes caminan, se sientan y escriben en sus escritorios',chip:'● QUALITY LAB · EQUIPO EN MISIÓN',roomLabel:'PIXEL QA OFFICE &nbsp;·&nbsp; ELIGE UN AGENTE PARA EMPEZAR',
- spots:[['nova','fundamentals','Hablar con Nova, guía de fundamentos QA','NOVA · GUÍA QA'],['byte','cases','Hablar con Byte, diseñador de pruebas','BYTE · TESTS'],['patch','bugs','Hablar con Patch, cazador de bugs','PATCH · BUGS']],
- agTitle:'Conoce a tus Pixel Agents',agSub:'Haz clic en un agente para abrir su ruta de aprendizaje y ver qué debes completar.',agTag:'APRENDE · PRACTICA · SUBE DE NIVEL',agColor:'#168b91',agAria:'Agentes de aprendizaje QA',
- agents:[['fundamentals','Abrir agente de fundamentos QA','Nova · QA Guide','Fundamentos, SDLC y principios del testing.','COMENZAR RUTA'],['cases','Abrir agente de casos de prueba','Byte · Test Designer','Casos de prueba, técnicas y criterios de aceptación.','RUTA DE CASOS'],['bugs','Abrir agente de bugs y Jira','Patch · Bug Hunter','Reportes claros, evidencia y seguimiento de defectos.','RUTA DE BUGS']],
- cardH:'Tu estación de trabajo',cardP:'Observa, documenta, encuentra errores y ayuda al equipo a entregar software confiable. Empieza con los fundamentos y avanza piso a piso.',
- stats:[['01','Tu primer nivel'],['3','Compañeros de equipo'],['QA','Tu especialidad']],ask:'¿Listo para comenzar tu formación?',enter:'Entrar a formación QA →',
+ spots:[['nova','fundamentals','Hablar con Nova, mentora QA','NOVA · MENTORA'],['byte','cases','Hablar con Byte, diseño y automatización','BYTE · TESTS'],['patch','bugs','Hablar con Patch, bugs y Jira','PATCH · BUGS'],['marta','marta','Hablar con Marta, Product Owner','MARTA · PRODUCT OWNER'],['diego','diego','Hablar con Diego, developer','DIEGO · DEV'],['andres','andres','Andrés, tu perfil','ANDRÉS · TÚ']],
+ agTitle:'Tu equipo en ZOWL QA Labs',agSub:'Cada compañero te asigna y revisa los proyectos de su especialidad. Haz clic para abrir el siguiente que te corresponde.',agTag:'APRENDE TRABAJANDO',agColor:'#168b91',agAria:'Agentes de aprendizaje QA',
+ agents:[['fundamentals','Abrir proyectos con Nova','Nova · Mentora QA','Fundamentos, onboarding e inglés técnico.','MIS PROYECTOS'],['cases','Abrir proyectos con Byte','Byte · Test Designer','Casos de prueba y automatización con Cypress.','MIS PROYECTOS'],['bugs','Abrir proyectos con Patch','Patch · Bug Hunter','Reporte de bugs, Jira y pruebas web.','MIS PROYECTOS'],['marta','Abrir proyectos con Marta','Marta · Product Owner','Scrum, plan de pruebas, CV y entrevistas.','MIS PROYECTOS'],['diego','Abrir proyectos con Diego','Diego · Developer','SQL, APIs con Postman y Git/GitHub.','MIS PROYECTOS'],['andres','Ver mi perfil','Andrés · Tú','Tu avatar, rango y habilidades ganadas.','VER PERFIL']],
+ cardH:'Tu estación de trabajo',cardP:'Aquí no hay clases: hay 15 proyectos reales. En cada uno aprendes la teoría, descargas los programas, practicas y entregas. Al final tendrás portafolio, CV y práctica de entrevista.',
+ stats:[['15','Proyectos reales'],['5','Compañeros con rol'],['~2','Meses de ruta']],ask:'¿Listo para tu primer día de trabajo?',enter:'Entrar a la Empresa QA →',
  teamH:'Así trabaja el equipo',feats:[['⌕','Explorar','Entender qué debe hacer el producto.'],['✓','Probar','Ejecutar pruebas y registrar resultados.'],['↗','Mejorar','Reportar bugs con evidencia clara.']],
- tab:'qa',routes:{fundamentals:{i:0,name:'Fundamentos de QA'},cases:{i:5,name:'Casos de prueba'},bugs:{i:6,name:'Reporte de bugs y Jira'}}},
+ tab:'work',routes:{}},
 git:{cls:'git',mark:GIT_ICON,markBg:'linear-gradient(145deg,#f4795b,#c8482a)',brand:'GIT LAB · PISO 01',aria:'Interior de la oficina Git y GitHub',eyebrow:'TU PRIMER DÍA CON GIT',h1:'Bienvenido al Git Lab.',sub:'Un equipo que versiona, revisa y publica. Aquí aprendes a guardar tu trabajo y a mostrarlo en GitHub.',live:'Oficina activa · Equipo en revisión',
  roomAria:'Oficina Git y GitHub isométrica pixel art con agentes interactivos',canvasAria:'Oficina isométrica pixel art de Git y GitHub: el equipo revisa Pull Requests, mueve tarjetas del tablero y mira el gráfico de commits',chip:'● GIT LAB · EQUIPO EN REVISIÓN',roomLabel:'PIXEL GIT LAB &nbsp;·&nbsp; ELIGE UN AGENTE PARA EMPEZAR',
  spots:[['hub','hub','Hablar con Hub, guía de GitHub','HUB · GITHUB'],['commit','commit','Hablar con Commit, guía de Git local','COMMIT · GIT'],['merge','merge','Hablar con Merge, guía de ramas y Pull Requests','MERGE · PR']],
@@ -2898,7 +2698,7 @@ lib:{cls:'lib',mark:'☰',markBg:'linear-gradient(145deg,#c08a2b,#8a5630)',brand
  tab:'lib',routes:{dewey:{},lexi:{}}}};
 function officeHTML(o){
  return `<div class="qa-shell"><header class="qa-top"><div class="qa-brand"><span class="qa-mark" ${o.markBg?`style="background:${o.markBg}"`:''}>${o.mark}</span><div>ZOWL <small>${o.brand}</small></div></div><button class="qa-back">← Volver a la ciudad</button></header>
- <main class="qa-main"><div class="qa-welcome"><div><div class="qa-eyebrow" ${o.cls!=='qa'?`style="color:${o.agColor}"`:''}>${o.eyebrow}</div><h1>${o.h1}</h1><p>${o.sub}</p></div><div class="qa-live"><i></i> ${o.live}</div></div>
+ <main class="qa-main"><div class="qa-welcome"><div><div class="qa-eyebrow" ${o.cls!=='qa'?`style="color:${o.agColor}"`:''}>${o.eyebrow}</div><h1>${o.h1}</h1><p>${o.sub}</p>${o.cls==='qa'?'<button class="qa-work">💼 Abrir mis proyectos de la empresa →</button>':''}</div><div class="qa-live"><i></i> ${o.live}</div></div>
  <section class="qa-room" aria-label="${o.roomAria}">
  <canvas class="qa-scene-img" width="480" height="320" role="img" aria-label="${o.canvasAria}"></canvas>
  <div class="qa-lab-chip">${o.chip}</div>
@@ -2916,9 +2716,10 @@ function showOffice(key){
  let office=document.getElementById(key+'Office');
  if(!office){office=document.createElement('section');office.id=key+'Office';office.className='qa-office-root';office.setAttribute('aria-label',o.aria);office.innerHTML=officeHTML(o);document.body.appendChild(office);
   office.querySelector('.qa-back').addEventListener('click',()=>{office.classList.remove('open');pf.classList.remove('open');pf.style.zIndex='30';document.body.classList.remove('qa-office-open')});
+  const qw=office.querySelector('.qa-work');if(qw)qw.addEventListener('click',()=>{V.tab='work';V.i=null;V.run=null;pfRender();pf.style.zIndex='90';pf.classList.add('open')});
   office.querySelector('.qa-enter').addEventListener('click',()=>{V.tab=o.tab;V.i=null;V.run=null;pfRender();pf.style.zIndex='90';pf.classList.add('open')});
   office.querySelectorAll('[data-agent]').forEach(btn=>btn.addEventListener('click',()=>{
-   const route=o.routes[btn.dataset.agent]||{};V.tab=o.tab;V.run=null;pf.style.zIndex='90';
+   if(key==='qa'){wkAgent(btn.dataset.agent);return}const route=o.routes[btn.dataset.agent]||{};V.tab=o.tab;V.run=null;pf.style.zIndex='90';
    if(route.i!=null){const t=o.tab;
     if(unlocked(t,route.i)&&TOW[t].fl[route.i]&&TOW[t].fl[route.i].th){V.i=route.i;pfRender();pf.classList.add('open')}
     else{V.i=null;pfRender();pf.classList.add('open');toast('Completa los niveles anteriores para desbloquear '+route.name+'.')}}
@@ -2936,6 +2737,265 @@ openBuilding=function(b){
  else toast('Ayuntamiento: en construcción. Se abrirá más adelante.')
 };
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.qa-office-root.open').forEach(o=>o.classList.remove('open'))}});
+
+/* ============ EMPRESA QA · 15 proyectos con equipo ============ */
+const WK_MENT={nova:['Nova','#168b91'],byte:['Byte','#6a5ad8'],patch:['Patch','#d9822b'],marta:['Marta','#d9608a'],diego:['Diego','#3d7fd0']};
+const WK_ROL={nova:'Mentora QA',byte:'Diseño de pruebas y automatización',patch:'Bugs, Jira y pruebas web',marta:'Product Owner · Scrum y empleo',diego:'Developer · SQL, APIs y Git'};
+const wkRank=d=>d<1?'Nuevo ingreso':d<4?'QA Trainee':d<8?'QA Trainee II':d<12?'QA Junior':d<15?'QA Junior sólido':'Listo para postular';
+const WK_SD='https://www.saucedemo.com',WK_TI='https://the-internet.herokuapp.com',WK_JP='https://jsonplaceholder.typicode.com';
+const WK=[
+{id:'QA-001',t:'Tu primer día en ZOWL QA Labs',cl:'ZOWL QA Labs (interno)',pr:'Normal',min:'2–3 h',d:'Día 1',ld:'nova',
+ steps:[
+ {w:'nova',x:'¡Bienvenido, Andrés! Soy Nova, tu mentora. En esta empresa **no hay clases: hay proyectos**. Cada ticket es un trabajo de un cliente. Yo y el equipo te explicamos lo que necesitas, tú lo practicas en el sitio real y entregas. Lo revisamos como en cualquier empresa. En unos 2 meses habrás hecho 15 proyectos.'},
+ {w:'nova',x:'**¿Qué es QA?** Calidad es que el producto haga lo prometido y además sea usable, confiable y seguro. **QA** (aseguramiento) previene defectos mejorando procesos. **QC** (control) detecta defectos en el producto ya hecho. **Testing** es la actividad concreta de ejecutar el software para buscar fallas. Un día normal: leer requisitos, diseñar casos, ejecutar pruebas, reportar bugs, verificar arreglos y automatizar lo repetitivo.'},
+ {w:'nova',x:'Un defecto hallado al escribir el requisito cuesta casi nada; el mismo en producción cuesta clientes y dinero. Por eso QA entra **temprano** (shift-left). Cadena: una persona comete un **error**, queda un **defecto** (bug) en el código y al ejecutarlo aparece un **fallo** visible.'},
+ {w:'marta',x:'Hola, soy Marta, Product Owner. Yo decido **qué** se construye y traigo los proyectos. Trabajamos en **Scrum**: ciclos cortos llamados **sprints** (2 semanas), con daily de 15 min, review y retrospectiva. Cada necesidad se escribe como historia de usuario: «Como [usuario] quiero [acción] para [beneficio]».'},
+ {w:'nova',x:'Los **7 principios del testing**: 1) las pruebas muestran presencia de defectos, no su ausencia; 2) probar todo es imposible, se prioriza por riesgo; 3) pruebas tempranas; 4) los defectos se agrupan en pocos módulos; 5) paradoja del pesticida: repetir siempre lo mismo deja de hallar bugs; 6) depende del contexto; 7) un software sin bugs que no sirve al usuario sigue siendo un fracaso.'},
+ {w:'nova',x:'Instala hoy tus herramientas de trabajo. Son las que piden las empresas en Colombia para QA junior: **Google Chrome**, **Visual Studio Code**, **Postman**, **Git**, **Node.js (LTS)** y **DB Browser for SQLite**. Descárgalas desde los enlaces.',links:[['Google Chrome','https://www.google.com/chrome/'],['Visual Studio Code','https://code.visualstudio.com'],['Postman','https://www.postman.com/downloads/'],['Git','https://git-scm.com/downloads'],['Node.js LTS','https://nodejs.org'],['DB Browser for SQLite','https://sqlitebrowser.org']],act:'Instalé las 6 herramientas'},
+ {w:'nova',x:'Abre Chrome y pulsa `F12`: son las **DevTools**. Mira las pestañas **Elements**, **Console**, **Network** y **Application**. Vas a vivir ahí.',act:'Abrí DevTools y vi las pestañas'},
+ {w:'nova',x:'Todo lo que hagas se guarda en GitHub: será tu portafolio. Si nunca lo usaste, toca la lección guiada de Git y GitHub (abajo) y crea tu cuenta y tu repositorio público `qa-portfolio` con un README.',links:[['Crear repositorio','https://github.com/new']],les:[['git',0]],act:'Creé el repositorio qa-portfolio'}],
+ del:{k:'text',lb:'Tu entrega',ph:'Explica con tus palabras qué es QA, QC y testing, y pega el enlace a tu repositorio.',min:40,re:[['\\bqa\\b','QA'],['\\bqc\\b|control de calidad','QC'],['testing|prueba','testing'],['github\\.com','el enlace de tu repositorio de GitHub']]},
+ end:['nova','Muy bien. Ya tienes puesto, herramientas y repositorio. Mañana viene tu primer cliente.']},
+
+{id:'QA-002',t:'Swag Labs · Smoke test del login',cl:'Swag Labs (tienda online)',pr:'Alta',min:'2 h',d:'Días 2–3',ld:'byte',
+ steps:[
+ {w:'byte',x:'Soy Byte, diseño casos de prueba. Primer cliente: **Swag Labs**, una tienda online que va a lanzar y pregunta: «¿el login funciona?». Eso es un **smoke test**: pruebas rápidas de lo más crítico antes de profundizar.'},
+ {w:'byte',x:'Un **caso de prueba** es una receta repetible para comprobar UNA cosa. Partes: ID, título, precondiciones, pasos, datos, **resultado esperado** y **resultado obtenido**. Debe ser atómico (una sola cosa), repetible por otra persona e independiente.'},
+ {w:'byte',x:'**Niveles**: unitaria (la hace dev), integración, sistema (aquí vive QA) y aceptación (cliente). **Tipos**: funcional, no funcional (rendimiento, seguridad, usabilidad, compatibilidad), humo, regresión (repetir tras un cambio) y exploratoria (sin guion, con objetivo y tiempo). Sin ver el código es **caja negra**, que es lo que hará QA normalmente.'},
+ {w:'byte',x:'Ejecuta TC-01 «Login válido»: 1) abre la tienda 2) usuario `standard_user` 3) contraseña `secret_sauce` 4) Login. Esperado: ves el catálogo.',links:[['Abrir Swag Labs',WK_SD]],act:'Ejecuté TC-01 y entré al catálogo'},
+ {w:'byte',x:'Ahora lo negativo: prueba `locked_out_user` con la misma contraseña y luego `standard_user` con clave equivocada. Anota el mensaje de cada uno.',act:'Probé usuario bloqueado y clave incorrecta'},
+ {w:'byte',x:'Último: deja ambos campos **vacíos** y pulsa Login. Un buen QA prueba más lo que falla que lo que funciona.',act:'Probé con campos vacíos'},
+ {w:'byte',x:'Entrega **3 casos** de lo que ejecutaste, al menos uno negativo. En el resultado marca lo que viste tú, no lo que imaginas.'}],
+ del:{k:'tc',n:3},
+ end:['byte','Casos claros que cualquiera puede repetir. Así se ve un smoke test profesional. Guárdalos para tu portafolio.']},
+
+{id:'QA-003',t:'Diseño de casos: partición y valores límite',cl:'Tienda demo (registro de usuarios)',pr:'Normal',min:'2–3 h',d:'Días 4–5',ld:'byte',
+ steps:[
+ {w:'byte',x:'No puedes probar todos los valores; por eso existen técnicas. **Partición de equivalencia**: agrupas entradas que se comportan igual y pruebas un representante por grupo. **Valores límite**: los bugs viven en los bordes.'},
+ {w:'byte',x:'Ejemplo: edad aceptada 18–65. Clases: menor de 18 (inválida), 18–65 (válida), mayor de 65 (inválida), no numéricos (inválida). Límites: 17, 18, 65, 66. Para una contraseña de 8 a 20 caracteres: 7, 8, 20 y 21.'},
+ {w:'byte',x:'Más técnicas: **tabla de decisión** (cuando el resultado depende de varias condiciones: 3 condiciones = 8 combinaciones), **transición de estados** (pedido: creado → pagado → enviado; probar también las transiciones inválidas), **adivinar errores** (vacíos, espacios, textos enormes, ñ, emojis, `<script>`) y **matriz de trazabilidad** (requisito ↔ casos).'},
+ {w:'byte',x:'Regla del proyecto: «la contraseña debe tener entre 8 y 20 caracteres, al menos una mayúscula y un número». Abre el formulario de registro de la tienda demo y compara con tu diseño. Las reglas reales pueden diferir: anota lo que encuentres.',links:[['Practice Software Testing · registro','https://practicesoftwaretesting.com/auth/register']],act:'Probé el formulario de registro'},
+ {w:'byte',x:'Entrega **5 casos** de contraseña con valores límite y clases (7, 8, 20, 21 caracteres, sin mayúscula, sin número…). Incluye negativos.'}],
+ del:{k:'tc',n:5},
+ end:['byte','Buena cobertura con pocos casos. Esa es la idea de las técnicas de diseño.']},
+
+{id:'QA-004',t:'The Internet · Caza de bugs',cl:'The Internet (sitio de práctica)',pr:'Normal',min:'2 h',d:'Días 6–7',ld:'patch',
+ steps:[
+ {w:'patch',x:'Soy Patch, cazador de bugs. Regla de oro: un bug mal reportado se ignora; uno bien reportado se arregla hoy.'},
+ {w:'patch',x:'Un reporte tiene **título específico**, **entorno** (navegador y sistema), **pasos** numerados, **resultado esperado**, **resultado obtenido**, **severidad** y **evidencia**. Mal título: «No funciona». Buen título: «Imágenes rotas en /broken_images: 2 de 3 no cargan».'},
+ {w:'patch',x:'**Severidad** = impacto técnico (crítica: bloquea o pierde datos; alta; media; baja: cosmético). **Prioridad** = urgencia para el negocio. Pueden diferir: el logo mal escrito en portada es severidad baja y prioridad alta. Antes de reportar, repite el fallo 2 veces y busca duplicados.'},
+ {w:'patch',x:'Elige un defecto. **A)** `/broken_images`: mira las imágenes. **B)** `/javascript_error`: pulsa `F12` y mira la **Console**.',links:[['Abrir /broken_images',WK_TI+'/broken_images'],['Abrir /javascript_error',WK_TI+'/javascript_error']],act:'Encontré un defecto y puedo reproducirlo'},
+ {w:'patch',x:'Haz una **captura** (Windows: `Win+Shift+S`). Guárdala en una carpeta: la subirás a tu repositorio después. Luego escribe el reporte.',act:'Hice la captura'}],
+ del:{k:'bug',n:1},
+ end:['patch','Reporte limpio y reproducible. Un developer podría arreglarlo sin escribirte.']},
+
+{id:'QA-005',t:'Swag Labs · El usuario problemático + Jira',cl:'Swag Labs (tienda online)',pr:'Alta',min:'3 h',d:'Días 8–10',ld:'patch',
+ steps:[
+ {w:'patch',x:'Las empresas colombianas gestionan bugs en **Jira** (también Azure DevOps o TestRail). Crea tu cuenta gratuita y un proyecto Scrum llamado «QA Practica». Tipos de ticket: **Epic, Story, Task, Bug**. Estados típicos: Nuevo → Asignado → En progreso → Resuelto → Verificado → Cerrado (o Reabierto).',links:[['Crear cuenta Jira gratis','https://www.atlassian.com/software/jira/free']],act:'Creé mi proyecto en Jira'},
+ {w:'patch',x:'Aprende **JQL**, el lenguaje de búsqueda: `project = QA AND issuetype = Bug AND status != Done ORDER BY priority DESC`. Prueba crear un filtro guardado de «bugs abiertos».',act:'Probé una búsqueda JQL'},
+ {w:'patch',x:'Cliente: Swag Labs otra vez. Entra con `problem_user` / `secret_sauce`. Mira las **imágenes** de los productos, añade varios al carrito (¿todos los botones cambian a Remove?) y haz el checkout (¿puedes escribir en todos los campos?).',links:[['Abrir Swag Labs',WK_SD]],act:'Revisé catálogo, carrito y checkout con problem_user'},
+ {w:'patch',x:'Cada defecto es **un** reporte. No mezcles dos problemas: el developer no podría cerrarlos por separado. Crea los dos Bugs también en Jira y entrega aquí **2 reportes distintos**.'}],
+ del:{k:'bug',n:2},
+ end:['patch','Dos defectos separados, bien documentados y en Jira. Con esto ya puedes mostrar trabajo en una entrevista.']},
+
+{id:'QA-006',t:'Pruebas web: DevTools, responsive y accesibilidad',cl:'Tienda demo (web)',pr:'Normal',min:'3 h',d:'Días 11–12',ld:'patch',
+ steps:[
+ {w:'patch',x:'Muchas ofertas piden pruebas funcionales web, compatibilidad y accesibilidad. **Network** muestra cada petición (método, código, tiempo). **Console** muestra errores JavaScript en rojo. **Application** muestra cookies. Con `Ctrl+Shift+M` pasas a modo móvil y simulas conexión lenta con *throttling*.'},
+ {w:'patch',x:'**Formularios**: prueba obligatorios, longitudes, formatos (email), mensajes claros, doble clic, botón atrás, recargar. **Compatibilidad**: Chrome, Firefox, Edge, móvil y escritorio (BrowserStack ofrece prueba gratuita limitada). **Accesibilidad (WCAG)**: contraste, texto alternativo, navegar todo con Tab/Enter, etiquetas en campos.'},
+ {w:'patch',x:'Abre la tienda, `F12` → **Network**, recarga y anota 3 peticiones con método, URL y código. Luego cambia al modo móvil con 3 tamaños y anota 3 problemas de diseño.',links:[['Practice Software Testing','https://practicesoftwaretesting.com']],act:'Revisé Network y responsive'},
+ {w:'patch',x:'En DevTools abre la pestaña **Lighthouse** y ejecuta una auditoría. Anota las 4 puntuaciones. Después recorre un formulario usando solo el teclado.',links:[['Extensión axe DevTools','https://www.deque.com/axe/devtools/']],act:'Corrí Lighthouse y probé con teclado'},
+ {w:'patch',x:'Entrega un informe breve: qué viste en Network, qué problemas de responsive hallaste, puntuaciones de Lighthouse y qué pasó al navegar con teclado.'}],
+ del:{k:'text',lb:'Informe de pruebas web',ph:'Network: ... Responsive: ... Lighthouse: ... Teclado: ...',min:60,re:[['network|red','Network'],['responsive|m[oó]vil','responsive'],['lighthouse','Lighthouse'],['teclado|tab\\b','prueba con teclado']]},
+ end:['patch','Informe útil y accionable. Cubriste funcionalidad, compatibilidad y accesibilidad.']},
+
+{id:'QA-007',t:'SQL: validar datos en la base',cl:'Tienda demo (base de datos)',pr:'Alta',min:'4 h',d:'Días 13–16',ld:'diego',
+ steps:[
+ {w:'diego',x:'Soy Diego, developer. Hola Andrés. Casi todas las ofertas QA piden **SQL**. Una base relacional guarda datos en **tablas** (filas y columnas). La **clave primaria** identifica cada fila y la **clave foránea** relaciona tablas. QA usa SQL para verificar que lo que hizo la app quedó bien guardado.'},
+ {w:'diego',x:'Sintaxis base: `SELECT columnas FROM tabla WHERE condición ORDER BY col LIMIT n`. **INNER JOIN** trae solo filas con pareja; **LEFT JOIN** trae todas las de la izquierda (con `IS NULL` hallas las huérfanas). **GROUP BY** agrupa con COUNT, SUM, AVG; `WHERE` filtra filas y `HAVING` filtra grupos. Cuidado: `UPDATE` o `DELETE` sin WHERE afectan toda la tabla; solo en entornos de prueba.'},
+ {w:'diego',x:'Abre DB Browser for SQLite, crea una base nueva y ejecuta este script en la pestaña «Execute SQL»:',code:"CREATE TABLE clientes(id INTEGER PRIMARY KEY, nombre TEXT, email TEXT, ciudad TEXT);\nCREATE TABLE pedidos(id INTEGER PRIMARY KEY, cliente_id INTEGER, total REAL, fecha TEXT);\nINSERT INTO clientes VALUES (1,'Ana','ana@mail.com','Bogota'),(2,'Luis','luis@mail.com','Medellin'),(3,'Sara','ana@mail.com','Cali'),(4,'Pedro','pedro@mail.com','Bogota');\nINSERT INTO pedidos VALUES (1,1,120.5,'2026-01-10'),(2,1,80,'2026-01-12'),(3,2,45.9,'2026-01-15'),(4,2,-10,'2026-01-16'),(5,3,200,'2026-01-20');",act:'Creé la base y cargué los datos'},
+ {w:'diego',x:'Practica en orden: 1) clientes de Bogota; 2) pedidos ordenados por total de mayor a menor; 3) total gastado por cliente con JOIN y GROUP BY; 4) clientes sin pedidos con LEFT JOIN. Para reforzar, haz las primeras lecciones de SQLBolt.',links:[['SQLBolt (SQL interactivo)','https://sqlbolt.com']],act:'Ejecuté las 4 primeras consultas'},
+ {w:'diego',x:'Ahora **como QA**: escribe consultas que detecten datos malos. 5) emails duplicados (GROUP BY email HAVING COUNT(*) > 1); 6) pedidos con total negativo. Pista: hay un email repetido y un pedido inválido a propósito.',act:'Ejecuté las consultas de validación'},
+ {w:'diego',x:'Entrega las 6 consultas, una por línea o separadas por punto y coma, con un comentario `--` que diga qué bug insinúa cada una.'}],
+ del:{k:'text',lb:'Tus 6 consultas',ph:'-- 1 clientes de Bogota\nSELECT ...',min:30,re:[['select','SELECT'],['where','WHERE'],['order\\s+by','ORDER BY'],['join','JOIN'],['group\\s+by','GROUP BY'],['count\\s*\\(','COUNT'],['is\\s+null','IS NULL (huérfanos)'],['<\\s*0','el filtro de totales negativos']]},
+ end:['diego','Consultas correctas y con intención de QA. Con esto pasas el filtro de SQL de casi cualquier oferta junior.']},
+
+{id:'QA-008',t:'APIs: pruebas con Postman',cl:'JSONPlaceholder (API de práctica)',pr:'Normal',min:'3 h',d:'Días 17–19',ld:'diego',
+ steps:[
+ {w:'diego',x:'Hay bugs que no se ven en pantalla: los de las **APIs**. El cliente envía una **petición** (URL + método + headers + body) y el servidor responde con **código de estado** y normalmente JSON. Métodos: GET leer, POST crear, PUT/PATCH actualizar, DELETE borrar. Códigos: `200` OK, `201` creado, `204` sin contenido, `400` petición inválida, `401` no autenticado, `403` sin permiso, `404` no existe, `500` error del servidor.'},
+ {w:'diego',x:'Si quieres entender mejor cómo viaja una petición por la red (IP, DNS, puertos), toca la lección guiada de Redes del Centro IT.',les:[['it',1]]},
+ {w:'diego',x:'Abre en el navegador `'+WK_JP+'/posts/1`: eso es un **GET**. Para ver el código: `F12` → **Network** → recarga → clic en la petición → **Status**.',links:[['Abrir /posts/1',WK_JP+'/posts/1']],act:'Hice GET /posts/1 y vi el código'},
+ {w:'diego',x:'Ahora un **POST** en **Postman**: método POST, URL `'+WK_JP+'/posts`, pestaña Body → raw → JSON: `{"title":"foo","body":"bar","userId":1}`. Envía y mira el código y el `id` de la respuesta.',act:'Hice el POST en Postman'},
+ {w:'diego',x:'Prueba un recurso que no existe: GET `'+WK_JP+'/posts/9999`. Probar lo inexistente es tan importante como lo que sí existe.',act:'Hice GET /posts/9999'},
+ {w:'diego',x:'Por último cuenta cuántos posts devuelve GET `'+WK_JP+'/posts`. Truco en la **Console**: `fetch("'+WK_JP+'/posts").then(r=>r.json()).then(d=>console.log(d.length))`.',act:'Conté los posts'}],
+ del:{k:'api'},
+ end:['diego','Probaste lo que existe, lo que se crea y lo que no existe. Eso es pensar como QA de APIs.']},
+
+{id:'QA-009',t:'Postman avanzado: colección con tests automáticos',cl:'JSONPlaceholder (API de práctica)',pr:'Alta',min:'4 h',d:'Días 20–22',ld:'diego',
+ steps:[
+ {w:'diego',x:'Las empresas piden colecciones de Postman con **tests automáticos**. Conceptos: **colección** (carpeta de peticiones), **entorno y variables** (`{{base_url}}`), **autenticación** (API key o Bearer token en Headers) y **tests** escritos en JavaScript con `pm.test`.'},
+ {w:'diego',x:'Qué probar en cada endpoint: camino feliz (200/201), validaciones (campos faltantes → 400), autenticación (sin token → 401), recurso inexistente (404), tipos de datos de la respuesta, tiempo de respuesta. Y tras un POST, verifica el efecto con un GET.'},
+ {w:'diego',x:'Crea una colección «API Practica» y un entorno con `base_url` = `'+WK_JP+'`. Usa `{{base_url}}/posts/1` en tus peticiones.',act:'Creé colección y entorno'},
+ {w:'diego',x:'En la pestaña **Scripts → Post-response** (o Tests) de GET /posts/1 pega este test y ejecútalo:',code:"pm.test('Status 200', () => pm.response.to.have.status(200));\npm.test('Tiene id y title', () => {\n  const j = pm.response.json();\n  pm.expect(j.id).to.eql(1);\n  pm.expect(j.title).to.be.a('string');\n});\npm.test('Responde rapido', () => pm.expect(pm.response.responseTime).to.be.below(1500));",act:'Ejecuté el test y pasó'},
+ {w:'diego',x:'Añade tests a POST (código 201) y a GET /posts/9999 (código 404). Luego ejecuta toda la colección con **Runner** y exporta colección y entorno en JSON para tu portafolio.',act:'Corrí el Runner y exporté los JSON'},
+ {w:'diego',x:'Entrega el código de tus tests: al menos 3 `pm.test`, uno que compruebe el código de estado y otro que lea el JSON de la respuesta.'}],
+ del:{k:'code',lb:'Código de tus tests de Postman',ph:"pm.test('Status 200', () => ...);",min:15,re:[['pm\\.test','pm.test'],['pm\\.response','pm.response'],['status|to\\.have','una verificación de status'],['json\\s*\\(','lectura del JSON (.json())'],['(?:[\\s\\S]*pm\\.test){3}','al menos 3 tests']]},
+ end:['diego','Tests con aserciones reales. Una colección así es exactamente lo que piden en entrevistas.']},
+
+{id:'QA-010',t:'Git y GitHub: publica tu portafolio con un Pull Request',cl:'ZOWL QA Labs (portafolio)',pr:'Alta',min:'4–5 h',d:'Días 23–25',ld:'diego',
+ steps:[
+ {w:'diego',x:'Git y GitHub son requisito en casi todo trabajo tech. Vas a subir tus entregas a `qa-portfolio` como se hace en un equipo: con **rama** y **Pull Request**. Si no recuerdas los comandos, toca las lecciones guiadas.'},
+ {w:'diego',x:'Primero lo local: instalar y usar Git en tu computador (`git init`, `add`, `commit`, `status`, `log`).',les:[['git',2]]},
+ {w:'diego',x:'Luego conecta con GitHub: clonar tu repo, `push` y `pull`.',les:[['git',3]]},
+ {w:'diego',x:'Y por último ramas y Pull Requests.',les:[['git',4]]},
+ {w:'diego',x:'Descarga tus entregas con el botón de abajo (si falta alguna, quedan en la lista de la Empresa). Clona tu repo, crea la rama `entregas-qa`, crea las carpetas `01-casos`, `02-bugs`, `03-sql`, `04-postman`, copia tus archivos y capturas, y haz commits pequeños con mensajes claros.',export:1,act:'Subí mis entregas en la rama entregas-qa'},
+ {w:'diego',x:'Abre un **Pull Request** hacia `main`, con título y descripción de lo que cambia, revisa «Files changed» y únelo (Merge). Mantén el README al día con un índice de proyectos.',act:'Abrí y uní mi Pull Request'},
+ {w:'diego',x:'Entrega el enlace de tu Pull Request, con este formato: `https://github.com/tu-usuario/qa-portfolio/pull/1`.'}],
+ del:{k:'url',lb:'Enlace de tu Pull Request',ph:'https://github.com/tu-usuario/qa-portfolio/pull/1',re:'^https://github\\.com/[\\w.-]+/[\\w.-]+/pull/\\d+/?$',err:'Pega el enlace de tu Pull Request, con este formato: https://github.com/tu-usuario/qa-portfolio/pull/1'},
+ end:['diego','Portafolio versionado y con PR. Un reclutador técnico lo va a poder revisar en 2 minutos.']},
+
+{id:'QA-011',t:'Automatización web con Cypress',cl:'Swag Labs (tienda online)',pr:'Alta',min:'5–6 h',d:'Días 26–30',ld:'byte',
+ steps:[
+ {w:'byte',x:'Las vacantes juniors cada vez piden algo de **automatización**: Cypress, Playwright o Selenium. Se automatiza lo **repetitivo, estable y crítico** (humo, regresión, APIs). Lo nuevo o exploratorio se hace a mano. Pirámide: muchas pruebas unitarias, algunas de API, pocas de interfaz (lentas y frágiles).'},
+ {w:'byte',x:'JavaScript mínimo: `const nombre = "Ana"`, funciones `(a,b)=>a+b`, arreglos `[1,2,3]`, objetos `{id:1}`, comparación estricta `===`. Cypress espera por ti, pero conviene saber que el navegador es asíncrono.'},
+ {w:'byte',x:'Crea una carpeta `qa-automation`, abre la terminal en ella y ejecuta:',code:'npm init -y\nnpm install cypress --save-dev\nnpx cypress open',act:'Instalé Cypress y abrí su panel'},
+ {w:'byte',x:'Crea el archivo `cypress/e2e/login.cy.js` con este test, ejecútalo en el panel hasta que pase:',code:"describe('Login Swag Labs', () => {\n  it('entra con datos validos', () => {\n    cy.visit('https://www.saucedemo.com');\n    cy.get('#user-name').type('standard_user');\n    cy.get('#password').type('secret_sauce');\n    cy.get('#login-button').click();\n    cy.url().should('include', 'inventory');\n  });\n});",act:'El test de login pasó'},
+ {w:'byte',x:'Buenas prácticas: selectores estables (`data-test`), pruebas independientes entre sí, **nada de esperas fijas** como `cy.wait(5000)`, y **Page Object** para reutilizar pasos. Añade un test de login inválido (debe mostrar error) y uno de agregar un producto al carrito.',act:'Escribí 3 tests en total'},
+ {w:'byte',x:'Sube el proyecto a GitHub con un README (qué prueba, cómo instalar, cómo ejecutar). Nunca subas contraseñas. Después, como ampliación, mira la documentación de Playwright y Selenium: en Colombia piden alguno de los tres.',links:[['Playwright','https://playwright.dev'],['Test Automation University','https://testautomationu.applitools.com']],act:'Subí qa-automation a GitHub'},
+ {w:'byte',x:'Entrega el código de tu archivo de pruebas Cypress (los 3 tests).'}],
+ del:{k:'code',lb:'Código de tu archivo .cy.js',ph:"describe('...', () => { it('...', () => { cy.visit(...) }) })",min:25,re:[['describe','describe'],['\\bit\\s*\\(','it(...)'],['cy\\.visit','cy.visit'],['cy\\.get','cy.get'],['\\.type\\s*\\(','.type'],['\\.click\\s*\\(','.click'],['should','una verificación (should)']]},
+ end:['byte','Pruebas automáticas, legibles e independientes. Ya tienes el diferencial que muchos juniors no tienen.']},
+
+{id:'QA-012',t:'Scrum real: historias y criterios de aceptación',cl:'ZOWL QA Labs (producto nuevo)',pr:'Normal',min:'3 h',d:'Días 31–33',ld:'marta',
+ steps:[
+ {w:'marta',x:'Hola de nuevo. Nuevo proyecto: un producto de **recuperación de contraseña**. En Scrum QA participa **desde el inicio**. Roles: Product Owner (qué), Scrum Master (cómo trabaja el equipo), Developers y QA. Reuniones: planning, daily, review y retrospectiva. **Definition of Done**: lista de condiciones para dar algo por terminado (probado, revisado, sin bugs críticos).'},
+ {w:'marta',x:'Historia: «Como cliente quiero recuperar mi contraseña para volver a entrar». **Criterios de aceptación** en formato Given/When/Then: *Dado* que estoy en la pantalla de recuperación, *cuando* ingreso un correo registrado, *entonces* recibo un enlace por email. Si la historia es ambigua, **preguntas** antes de programar; eso ya es hacer QA.'},
+ {w:'marta',x:'Escribe **5 preguntas** que me harías antes de que la programen (duración del enlace, correo no registrado, reglas de la nueva clave, límite de intentos, mensajes de error…).',act:'Escribí mis 5 preguntas'},
+ {w:'marta',x:'Entrega: tus 5 preguntas, **2 historias** de usuario con formato «Como … quiero … para …», y **3 criterios** en formato Dado / Cuando / Entonces.'}],
+ del:{k:'text',lb:'Tu entrega',ph:'Preguntas:\n1. ...\nHistorias:\nComo ... quiero ... para ...\nCriterios:\nDado ... cuando ... entonces ...',min:60,re:[['como .{3,}quiero','historias «Como … quiero …»'],['\\bdado\\b|\\bgiven\\b','«Dado»'],['\\bcuando\\b|\\bwhen\\b','«Cuando»'],['\\bentonces\\b|\\bthen\\b','«Entonces»'],['\\?','preguntas con signo de interrogación']]},
+ end:['marta','Historias claras y criterios verificables. Así se evitan bugs antes de escribir una línea de código.']},
+
+{id:'QA-013',t:'Plan de pruebas e informe final',cl:'Swag Labs (lanzamiento)',pr:'Alta',min:'4 h',d:'Días 34–37',ld:'marta',
+ steps:[
+ {w:'marta',x:'Swag Labs va a lanzar y necesita un **plan de pruebas**. Secciones: objetivo, **alcance** (qué sí y qué no), **estrategia** (tipos de prueba y técnicas), **criterios de entrada y salida**, **entornos y datos**, roles y cronograma, **riesgos** y entregables. Se basa en el riesgo: más profundidad donde fallar duele más.'},
+ {w:'marta',x:'**Métricas**: % de casos ejecutados, % aprobados, defectos por severidad, densidad de defectos, defectos escapados a producción, cobertura de requisitos. El **informe final** resume qué se probó, resultados, bugs abiertos, riesgos y una recomendación: liberar, liberar con riesgos o no liberar.'},
+ {w:'marta',x:'Descarga la plantilla de plan de pruebas desde la Biblioteca (archivos para descargar) o escríbelo desde cero. Define al menos 5 riesgos y cómo los mitigas.',act:'Redacté el plan en un documento'},
+ {w:'marta',x:'Entrega tu plan de pruebas resumido de Swag Labs y un informe final breve con métricas y recomendación.'}],
+ del:{k:'text',lb:'Plan de pruebas e informe',ph:'Alcance: ...\nEstrategia: ...\nCriterios de entrada/salida: ...\nEntornos: ...\nRiesgos: ...\nInforme: métricas y recomendación...',min:80,re:[['alcance','alcance'],['estrategia','estrategia'],['criterio','criterios de entrada/salida'],['entorno','entornos'],['riesgo','riesgos'],['m[eé]trica|cobertura|defecto','métricas'],['recomend|liberar','recomendación']]},
+ end:['marta','Plan coherente, con riesgos y recomendación. Eso diferencia a un tester de un QA.']},
+
+{id:'QA-014',t:'Inglés técnico: reporta un bug en inglés',cl:'Cliente internacional (remoto)',pr:'Normal',min:'3 h',d:'Días 38–40',ld:'nova',
+ steps:[
+ {w:'nova',x:'Muchas empresas que contratan en Colombia trabajan con clientes en el exterior y piden inglés. Vocabulario clave: **test case**, **bug report**, **steps to reproduce**, **expected result**, **actual result**, **regression testing**, **smoke test**, **acceptance criteria**, **sprint / backlog**, **workaround**, **root cause**, **severity / priority**.'},
+ {w:'nova',x:'Si tu inglés aún es básico, avanza con la lección guiada de la Academia de Inglés (A2) y haz 30 minutos diarios. Puedes también hacer el test EF SET para saber tu nivel.',les:[['en',1]],links:[['EF SET (nivel de inglés)','https://www.efset.org']]},
+ {w:'nova',x:'Plantilla de bug en inglés: *Title* / *Environment* / *Steps to reproduce* (1, 2, 3) / *Expected result* / *Actual result* / *Severity* / *Evidence*. Título ejemplo: «Login button unresponsive after valid credentials on Chrome».'},
+ {w:'nova',x:'Vuelve a uno de tus bugs de The Internet o Swag Labs y reescríbelo **completamente en inglés**.',act:'Reescribí un bug en inglés'},
+ {w:'nova',x:'Entrega ese bug report en inglés.'}],
+ del:{k:'text',lb:'Bug report in English',ph:'Title: ...\nEnvironment: ...\nSteps to reproduce:\n1. ...\nExpected result: ...\nActual result: ...\nSeverity: ...',min:40,re:[['title','Title'],['steps to reproduce','«Steps to reproduce»'],['expected','«Expected result»'],['actual','«Actual result»'],['severity','Severity']]},
+ end:['nova','Reporte claro y entendible para un equipo internacional. Sigue practicando 30 minutos al día.']},
+
+{id:'QA-015',t:'Tu CV, LinkedIn y entrevista: a postularte',cl:'Mercado laboral real',pr:'Alta',min:'5–6 h',d:'Días 41–45',ld:'marta',
+ steps:[
+ {w:'marta',x:'Último proyecto del sprint: **conseguir trabajo**. En Colombia las vacantes juniors de QA piden: pruebas manuales, casos de prueba, **Jira**, **SQL**, **Postman/APIs**, **Git**, nociones de automatización (**Cypress, Selenium o Playwright**), **Scrum** e inglés. Tú ya tienes evidencia de todo eso.'},
+ {w:'marta',x:'**CV de una página**: resumen de 3 líneas, habilidades, proyectos con enlace a GitHub, formación e idiomas. Solo experiencia real: mejor proyectos verificables que adjetivos. Descarga la plantilla en la Biblioteca. Certifica algo reconocido: el estándar es **ISTQB Foundation** (el sílabo es gratis; el examen es de pago).',links:[['ISTQB (sílabo y glosario)','https://www.istqb.org']],act:'Armé mi CV'},
+ {w:'marta',x:'**LinkedIn**: foto, titular claro («QA Tester Junior | Jira · SQL · Postman · Cypress»), acerca de, proyectos con enlace a tu GitHub. La pestaña LinkedIn de tu perfil te genera los textos con tus habilidades ya ganadas.',act:'Actualicé mi LinkedIn'},
+ {w:'marta',x:'Dónde postular: LinkedIn Jobs, Computrabajo, elempleo, Indeed y las páginas de empleo de las empresas de software. Lleva un registro (la Biblioteca tiene una plantilla de seguimiento de postulaciones). Meta: 5 postulaciones por semana, personalizando el mensaje.',links:[['LinkedIn Jobs','https://www.linkedin.com/jobs/'],['Computrabajo Colombia','https://www.computrabajo.com.co'],['elempleo','https://www.elempleo.com'],['Indeed Colombia','https://co.indeed.com']],act:'Hice mi lista de 10 empresas objetivo'},
+ {w:'marta',x:'**Entrevista técnica**. Preguntas típicas: diferencia QA/QC/testing, tipos de prueba, severidad vs prioridad, ciclo de vida del bug, cómo probarías un login, un JOIN, códigos HTTP, qué automatizarías y por qué. Usa el método **STAR** (Situación, Tarea, Acción, Resultado) con tus proyectos reales de aquí.'},
+ {w:'marta',x:'Entrega: tu **resumen de CV** (3 líneas con tus habilidades) y tu respuesta a «¿Cuéntame un bug que encontraste?» usando STAR con uno de tus proyectos.'}],
+ del:{k:'text',lb:'Resumen de CV + respuesta STAR',ph:'Resumen: QA Tester Junior con ...\n\nRespuesta STAR:\nSituación: ...\nTarea: ...\nAcción: ...\nResultado: ...',min:80,re:[['sql','SQL'],['postman','Postman'],['jira','Jira'],['git','Git'],['cypress|selenium|playwright','automatización'],['situaci','STAR: Situación'],['resultado','STAR: Resultado']]},
+ end:['marta','Ya tienes CV, portafolio, LinkedIn y respuestas. Ahora postula: yo me ocupo de que no te falte qué mostrar. ¡Éxitos, Andrés!']}
+];
+const wkl=s=>(s||'').split(/\n+/).map(x=>x.trim()).filter(Boolean);
+const wkw=s=>(s||'').trim().split(/\s+/).filter(Boolean).length;
+const wkF=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/\*(.+?)\*/g,'<i>$1</i>').replace(/`(.+?)`/g,'<code>$1</code>');
+const WKV={t:null};
+const wkS=id=>{if(!A.wk)A.wk={};return A.wk[id]||(A.wk[id]={s:0,a:[],f:{},d:0,rv:null})};
+const wkDone=()=>WK.filter(t=>A.wk&&A.wk[t.id]&&A.wk[t.id].d).length;
+const qaProg=()=>Math.min(8,Math.floor(wkDone()*8/WK.length));
+const wkOpen=i=>i===0||!!(A.wk&&A.wk[WK[i-1].id]&&A.wk[WK[i-1].id].d);
+const wkRep=(lbl,list,okMsg,w)=>{const bad=list.filter(x=>!x[0]).map(x=>x[1]);return{ok:!bad.length,w,m:bad.length?lbl+': falta '+bad.join('; ')+'.':lbl+': '+okMsg}};
+function wkEval(T,f){const k=T.del.k,r=[],w=T.ld;
+ if(k==='text'||k==='code'){const tx=f.txt||'',n=wkw(tx),mn=T.del.min||15;
+  r.push({ok:n>=mn,w,m:n>=mn?'Extensión suficiente.':'Desarrolla más tu entrega: mínimo '+mn+' palabras (llevas '+n+').'});
+  for(const q of (T.del.re||[])){const ok=new RegExp(q[0],'i').test(tx);r.push({ok,w,m:ok?'Incluye '+q[1]+'.':'Falta '+q[1]+'.'})}}
+ else if(k==='tc'){let neg=false;const ti=[];
+  for(let i=0;i<T.del.n;i++){const p='c'+i+'.',t=(f[p+'t']||'').trim(),s=wkl(f[p+'s']),e=(f[p+'e']||'').trim();ti.push(t.toLowerCase());
+   r.push(wkRep('Caso '+(i+1),[[t.length>=8,'un título claro (mín. 8 letras)'],[s.length>=3,'al menos 3 pasos, uno por línea'],[e.length>=10,'el resultado esperado'],[!!f[p+'r'],'marcar si pasó o falló']],'completo y repetible.','byte'));
+   if(/incorrect|inv[aá]lid|bloquead|locked|vac[ií]o|vac[ií]a|equivocad|\bmal\b|\bsin\b|\bno (debe|deber[ií]a|permite|puede)|\b(7|21|8|20)\b/i.test([t,e,f[p+'s']].join(' ')))neg=true}
+  r.push({ok:neg,w:'byte',m:neg?'Incluiste casos negativos o de límite.':'Falta un caso negativo o de límite: credenciales incorrectas, campos vacíos o valores en el borde.'});
+  const un=new Set(ti.filter(Boolean)).size===T.del.n;r.push({ok:un,w:'byte',m:un?'Los casos son distintos entre sí.':'Hay casos repetidos o vacíos: cada uno debe probar algo diferente.'})}
+ else if(k==='bug'){const ti=[];
+  for(let i=0;i<T.del.n;i++){const p='b'+i+'.',t=(f[p+'t']||'').trim(),e=(f[p+'e']||'').trim(),a=(f[p+'a']||'').trim();ti.push(t.toLowerCase());
+   const gen=/^(no funciona|error|falla|fallo|bug|problema|no sirve|roto|mal)[\s.!]*$/i.test(t);
+   r.push(wkRep('Reporte '+(i+1),[[wkw(t)>=3&&t.length>=12&&!gen,'un título específico (qué falla y dónde, mín. 3 palabras)'],[(f[p+'v']||'').trim().length>=5,'el entorno (navegador y sistema, ej. Chrome en Windows 11)'],[wkl(f[p+'s']).length>=3,'al menos 3 pasos, uno por línea'],[e.length>=10,'el resultado esperado'],[a.length>=10&&a.toLowerCase()!==e.toLowerCase(),'un resultado obtenido distinto del esperado'],[!!f[p+'y'],'la severidad'],[(f[p+'i']||'').trim().length>=5,'la evidencia (nombre de la captura o descripción)']],'completo y reproducible. Un developer podría arreglarlo.','patch'))}
+  if(T.del.n>1){const un=new Set(ti.filter(Boolean)).size===T.del.n;r.push({ok:un,w:'patch',m:un?'Cada reporte describe un defecto distinto.':'Los reportes deben ser de defectos distintos, con títulos diferentes.'})}}
+ else if(k==='api'){const ex=['200','201','404','101','100'],lb=['GET /posts/1','POST /posts','GET /posts/9999','id que devolvió el POST','cantidad de posts'];
+  ex.forEach((v,i)=>{const g=(f['a'+i]||'').trim();r.push({ok:g===v,w:'diego',m:g===v?lb[i]+': correcto.':(g?lb[i]+': lo que anotaste no coincide. Vuelve a hacer la petición y mira bien '+(i===3?'el cuerpo de la respuesta.':i===4?'el resultado de la consola.':'el código de estado.'):lb[i]+': falta tu respuesta.')})})}
+ else if(k==='url'){const u=(f.url||'').trim(),ok=new RegExp(T.del.re||'^https://github\\.com/[\\w.-]+/[\\w.-]+/?$').test(u);r.push({ok,w,m:ok?'Enlace válido.':(T.del.err||'Pega un enlace válido.')})}
+ return r}
+const wkIn=(st,k,lb,ph,ta)=>`<label>${lb}</label>${ta?`<textarea class="in" data-wk-f="${k}" placeholder="${esc(ph)}" rows="${ta>1?ta:3}">${esc(st.f[k]||'')}</textarea>`:`<input class="in" data-wk-f="${k}" placeholder="${esc(ph)}" value="${esc(st.f[k]||'')}">`}`;
+const wkSel=(st,k,lb,op)=>`<label>${lb}</label><select class="in" data-wk-f="${k}"><option value="">— elige —</option>${op.map(o=>`<option ${st.f[k]===o?'selected':''}>${o}</option>`).join('')}</select>`;
+function wkForm(T,st){const k=T.del.k;let h='';
+ if(k==='text'||k==='code')h=wkIn(st,'txt',T.del.lb||'Tu respuesta',T.del.ph||'',k==='code'?10:6);
+ else if(k==='tc')for(let i=0;i<T.del.n;i++){const p='c'+i+'.';h+=`<div class="card wk-fc"><b>Caso de prueba ${i+1}</b>${wkIn(st,p+'t','Título','Ej. Login con usuario válido')}${wkIn(st,p+'s','Pasos (uno por línea)','1. Abrir la página\n2. ...\n3. ...',1)}${wkIn(st,p+'e','Resultado esperado','Qué debería pasar')}${wkSel(st,p+'r','Resultado obtenido',['Pasó','Falló'])}</div>`}
+ else if(k==='bug')for(let i=0;i<T.del.n;i++){const p='b'+i+'.';h+=`<div class="card wk-fc"><b>Reporte de bug ${i+1}</b>${wkIn(st,p+'t','Título','Ej. Imágenes rotas en /broken_images: 2 de 3 no cargan')}${wkIn(st,p+'v','Entorno','Ej. Chrome 130 en Windows 11')}${wkIn(st,p+'s','Pasos para reproducir (uno por línea)','1. Abrir ...\n2. ...\n3. ...',1)}${wkIn(st,p+'e','Resultado esperado','Qué debería pasar')}${wkIn(st,p+'a','Resultado obtenido','Qué pasó realmente')}${wkSel(st,p+'y','Severidad',['Crítica','Alta','Media','Baja'])}${wkIn(st,p+'i','Evidencia','Nombre de la captura o descripción de lo que muestra')}</div>`}
+ else if(k==='api')h=`<div class="card wk-fc"><b>Resultados de tus pruebas</b>${wkIn(st,'a0','Código de estado de GET /posts/1','Ej. 200')}${wkIn(st,'a1','Código de estado de POST /posts','Número')}${wkIn(st,'a2','Código de estado de GET /posts/9999','Número')}${wkIn(st,'a3','Valor de «id» que devolvió el POST','Número')}${wkIn(st,'a4','Cantidad de posts que devuelve GET /posts','Número')}</div>`;
+ else if(k==='url')h=wkIn(st,'url',T.del.lb||'Enlace',T.del.ph||'https://github.com/tu-usuario/qa-portfolio');
+ return h}
+function wkLes(l){const t=l[0],i=l[1],f=TOW[t]&&TOW[t].fl[i];if(!f)return'';const ok=passedF(t,i);return `<button class="btn wk-lk" data-wk="les" data-t="${t}" data-i="${i}">📘 Aprende lección: ${esc(f.t)}${ok?' ✓':''}</button>`}
+function wkTicket(T){const st=wkS(T.id),n=T.steps.length,ld=WK_MENT[T.ld];
+ let h=`<button class="btn ghost" data-wk="back">← Volver a mis tickets</button><div class="wk-th"><span class="wk-id">${T.id}</span><h3>${esc(T.t)}</h3><div class="chips"><span class="pill">Cliente: ${esc(T.cl)}</span><span class="pill">Prioridad: ${T.pr}</span><span class="pill">Responsable: ${ld[0]}</span><span class="pill ${st.d?'hot':''}">${st.d?'Hecho':st.s>0||st.a.length?'En progreso':'Nuevo'}</span></div></div><div class="wk-chat">`;
+ for(let i=0;i<=st.s&&i<n;i++){const s=T.steps[i],m=WK_MENT[s.w];
+  h+=`<div class="wk-m"><span class="wk-av" style="background:${m[1]}">${m[0][0]}</span><div class="wk-b"><small style="color:${m[1]}">${m[0]} · ${WK_ROL[s.w].split(' · ')[0]}</small>${wkF(s.x)}${s.code?`<pre class="wk-pre">${esc(s.code)}</pre>`:''}${(s.links||[]).map(l=>`<a class="btn ghost wk-lk" href="${l[1]}" target="_blank" rel="noopener">${esc(l[0])} ↗</a>`).join('')}${(s.les||[]).map(wkLes).join('')}${s.export?'<button class="btn wk-lk" data-wk="export">⬇ Descargar mis entregas</button>':''}</div></div>`;
+  if(s.act)h+=`<label class="chk item wk-ck"><input type="checkbox" data-wk-chk="${i}" ${st.a.includes(i)?'checked':''}><span class="box"></span><span class="tx">${esc(s.act)}</span></label>`}
+ h+='</div>';
+ const cur=T.steps[st.s],ready=!cur.act||st.a.includes(st.s);
+ if(st.s<n-1)h+=`<button class="btn" data-wk="next" ${ready?'':'disabled'}>Entendido, sigue →</button>${ready?'':'<p class="muted">Haz la tarea en tu PC y márcala para continuar.</p>'}`;
+ else if(ready){
+  h+=`<h4>📨 Tu entrega</h4><div class="wk-form">${wkForm(T,st)}</div><button class="btn" data-wk="submit">${st.d?'Volver a enviar':'Enviar a revisión'}</button>`;
+  if(st.rv){h+=`<h4>🔎 Revisión del equipo</h4><ul class="wk-rv">${st.rv.map(x=>`<li class="${x.ok?'ok':'no'}"><b style="color:${WK_MENT[x.w][1]}">${WK_MENT[x.w][0]}</b> ${x.ok?'✓':'✗'} ${esc(x.m)}</li>`).join('')}</ul>`;
+   if(!st.d)h+='<p class="muted">El ticket vuelve a ti con comentarios. Corrige lo que falta y envía otra vez: es normal.</p>'}
+  if(st.d){const m=WK_MENT[T.end[0]],ix=WK.indexOf(T);h+=`<div class="wk-m"><span class="wk-av" style="background:${m[1]}">${m[0][0]}</span><div class="wk-b"><small style="color:${m[1]}">${m[0]} · Ticket cerrado ✓</small>${esc(T.end[1])}</div></div>${ix<WK.length-1?'<button class="btn" data-wk="nextt">Siguiente ticket →</button>':'<div class="exp">🎉 Completaste los 15 proyectos. Tienes portafolio real, CV y práctica de entrevista. ¡A postular!</div>'}`}}
+ return h}
+function vWork(){
+ if(WKV.t){const T=WK.find(x=>x.id===WKV.t);if(T)return wkTicket(T)}
+ const d=wkDone();
+ let h=`<div class="wk-hero"><div class="wk-av" style="background:#168b91;width:40px;height:40px;font-size:16px">A</div><div><b>ZOWL QA Labs · Andrés</b><br><span class="muted">Tu puesto: <b>${wkRank(d)}</b> · ${d}/${WK.length} proyectos cerrados</span></div></div><div class="pbar" style="padding:6px 0 4px"><div class="bar"><i style="width:${d/WK.length*100}%"></i></div><span class="pct">${d}/${WK.length}</span></div>`;
+ h+=`<div class="wk-m"><span class="wk-av" style="background:#168b91">N</span><div class="wk-b"><small style="color:#168b91">Nova · tu mentora</small>${d?'Buen trabajo, Andrés. Sigue con el siguiente proyecto; el equipo te acompaña.':'Aquí se aprende haciendo. Cada proyecto te enseña la teoría que necesitas, te dice qué programas descargar, qué practicar y qué entregar. Empieza por el primero.'}</div></div>`;
+ h+=`<h4>Tu equipo</h4><div class="chips">${Object.keys(WK_MENT).map(k=>`<span class="pill" style="border-color:${WK_MENT[k][1]}"><b style="color:${WK_MENT[k][1]}">${WK_MENT[k][0]}</b> · ${esc(WK_ROL[k])}</span>`).join('')}</div><h4>Mis proyectos</h4>`;
+ h+=WK.map((T,i)=>{const st=A.wk&&A.wk[T.id]||{},op=wkOpen(i),sc=st.d?'Hecho':st.s>0||(st.a&&st.a.length)?'En progreso':op?'Nuevo':'Bloqueado';
+  return `<button class="wk-tk ${op?'':'lock'} ${st.d?'done':''}" ${op?`data-wk="open" data-id="${T.id}"`:'disabled'}><span class="wk-id">${T.id}</span> <b>${esc(T.t)}</b><br><span class="muted">${esc(T.cl)} · ${T.min} · ${T.d} · Responsable: ${WK_MENT[T.ld][0]}</span><span class="pill ${st.d?'hot':''}" style="float:right">${op?'':'🔒 '}${sc}</span></button>`}).join('');
+ h+=`<p><button class="btn ghost" data-wk="export">⬇ Descargar mis entregas (portafolio)</button></p><p class="intro">Los proyectos usan sitios de práctica reales como clientes. Cuando una teoría necesite más base (Git, redes, inglés), te aparecerá un botón «Aprende lección» sin salir de la empresa. Lo que entregas se guarda en este navegador.</p>`;
+ return h}
+function wkMD(){let o='# Mis entregas · ZOWL QA Labs · Andrés\n\n';
+ for(const T of WK){const st=A.wk&&A.wk[T.id];if(!st||!st.d||!T.del)continue;const f=new Proxy(st.f,{get:(t,q)=>t[q]||'—'}),k=T.del.k;o+=`## ${T.id} · ${T.t}\n\nCliente: ${T.cl}\n\n`;
+  const ls=s=>wkl(s).map((x,j)=>`${j+1}. ${x.replace(/^\d+[.)]\s*/,'')}`).join('\n');
+  if(k==='text')o+=(st.f.txt||'')+'\n\n';
+  else if(k==='code')o+='```\n'+(st.f.txt||'')+'\n```\n\n';
+  else if(k==='url')o+=(st.f.url||'')+'\n\n';
+  else if(k==='tc')for(let i=0;i<T.del.n;i++){const p='c'+i+'.';o+=`### TC-0${i+1} · ${f[p+'t']}\n\n**Pasos:**\n${ls(f[p+'s'])}\n\n**Resultado esperado:** ${f[p+'e']}\n\n**Resultado obtenido:** ${f[p+'r']}\n\n`}
+  else if(k==='bug')for(let i=0;i<T.del.n;i++){const p='b'+i+'.';o+=`### BUG · ${f[p+'t']}\n\n- **Entorno:** ${f[p+'v']}\n- **Severidad:** ${f[p+'y']}\n- **Evidencia:** ${f[p+'i']}\n\n**Pasos para reproducir:**\n${ls(f[p+'s'])}\n\n**Resultado esperado:** ${f[p+'e']}\n\n**Resultado obtenido:** ${f[p+'a']}\n\n`}
+  else if(k==='api')o+=`| Petición | Resultado |\n|---|---|\n| GET /posts/1 | ${f.a0} |\n| POST /posts | ${f.a1} |\n| GET /posts/9999 | ${f.a2} |\n| id devuelto por POST | ${f.a3} |\n| Posts en GET /posts | ${f.a4} |\n\n`}
+ return o}
+/* los personajes cumplen funciones: cada uno abre el siguiente proyecto que le corresponde */
+function wkAgent(ag){
+ const map={fundamentals:'nova',cases:'byte',bugs:'patch',marta:'marta',diego:'diego'},who=map[ag];
+ V.tab='work';V.i=null;V.run=null;V.ret=null;
+ if(ag==='andres'){V.tab='avatar';pfRender();pf.style.zIndex='90';pf.classList.add('open');toast('Andrés · '+wkRank(wkDone())+' · '+wkDone()+'/'+WK.length+' proyectos');return}
+ let tk=null;for(let i=0;i<WK.length;i++){const st=A.wk&&A.wk[WK[i].id];if(wkOpen(i)&&!(st&&st.d)&&WK[i].ld===who){tk=WK[i];break}}
+ if(tk){WKV.t=tk.id;toast(WK_MENT[who][0]+': este es tu siguiente proyecto conmigo.')}
+ else{WKV.t=null;const nx=WK.find((T,i)=>wkOpen(i)&&!(A.wk&&A.wk[T.id]&&A.wk[T.id].d));toast(WK_MENT[who][0]+': por ahora no tengo proyectos pendientes contigo.'+(nx?' Sigue con '+nx.id+' ('+WK_MENT[nx.ld][0]+').':''))}
+ pfRender();pf.style.zIndex='90';pf.classList.add('open')}
+pf.addEventListener('click',e=>{const b=e.target.closest('[data-wk]');if(!b||b.disabled)return;const a=b.dataset.wk;
+ if(a==='open'){WKV.t=b.dataset.id;pfRender();const nb=pf.querySelector('.pbody');if(nb)nb.scrollTop=0}
+ else if(a==='back'){WKV.t=null;pfRender()}
+ else if(a==='les'){V.ret=WKV.t;V.tab=b.dataset.t;V.i=+b.dataset.i;V.run=null;pfRender();const nb=pf.querySelector('.pbody');if(nb)nb.scrollTop=0}
+ else if(a==='next'){const st=wkS(WKV.t);st.s++;asave();pfRender();const nb=pf.querySelector('.pbody');if(nb)nb.scrollTop=nb.scrollHeight}
+ else if(a==='submit'){const T=WK.find(x=>x.id===WKV.t),st=wkS(T.id);st.rv=wkEval(T,st.f);const ok=st.rv.every(x=>x.ok);if(ok&&!st.d){st.d=1;toast('🎉 Proyecto '+T.id+' cerrado · '+wkRank(wkDone()))}else if(!ok)toast('El ticket vuelve a ti con comentarios');asave();pfRender();const rv=pf.querySelector('.wk-rv');if(rv)rv.scrollIntoView({block:'start'})}
+ else if(a==='nextt'){const i=WK.findIndex(x=>x.id===WKV.t);if(i>=0&&i<WK.length-1){WKV.t=WK[i+1].id;pfRender();const nb=pf.querySelector('.pbody');if(nb)nb.scrollTop=0}}
+ else if(a==='export'){const bl=new Blob([wkMD()],{type:'text/markdown;charset=utf-8'}),u=URL.createObjectURL(bl),l=document.createElement('a');l.href=u;l.download='mis-entregas-qa.md';document.body.appendChild(l);l.click();l.remove();setTimeout(()=>URL.revokeObjectURL(u),2000)}});
+pf.addEventListener('change',e=>{const el=e.target;if(el.dataset.wkChk!=null){const st=wkS(WKV.t),n=+el.dataset.wkChk,ix=st.a.indexOf(n);if(el.checked&&ix<0)st.a.push(n);if(!el.checked&&ix>=0)st.a.splice(ix,1);asave();pfRender()}});
+const wkInp=e=>{const el=e.target;if(el.dataset&&el.dataset.wkF&&WKV.t){wkS(WKV.t).f[el.dataset.wkF]=el.value;asave()}};
+pf.addEventListener('input',wkInp);pf.addEventListener('change',wkInp);
 
 pf.addEventListener('input',e=>{if(e.target.id==='lq'){V.lq=e.target.value;const l=pf.querySelector('#llist');if(l)l.innerHTML=libList()}});
 document.getElementById('hint').innerHTML='Toca un edificio para entrar<br>Arrastra para mover · rueda para zoom';
